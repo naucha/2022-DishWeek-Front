@@ -13,6 +13,8 @@ User:
 - Add: Can add a dish from the list to myWeek (personal ordered menu).
 - Delete. Can delete any dish from the general list or mylist.
 
+Form object DB
+
 - Dishes (object):
   - Name (string)
   - Veggy (Boolean)
@@ -141,7 +143,7 @@ SIGNUPFORM:
 
   - Render Slogan phrase
 
- <br>
+    <br>
 
 - SIGN UP PAGE:
 
@@ -150,7 +152,7 @@ SIGNUPFORM:
   - Render DishWeek Logo, text and icon.
   - Render SLOGAN component
 
-  <br>
+    <br>
 
 - HOMEPAGE:
 
@@ -159,16 +161,18 @@ SIGNUPFORM:
   - Navbar (underline "Dishes")
   - Render Pagination
 
- <br>
- 
+    <br>
+
 - CREATE RECIPE PAGE:
+
   - Render h1
   - Render h2
   - Render CreateForm
 
- <br>
- 
+    <br>
+
 - MYWEEK PAGE:
+
   - BackgroundColor blue
   - Render header
   - Navbar (underline "Myweek")
@@ -176,17 +180,19 @@ SIGNUPFORM:
   - Render Selected Dishes
   - Add Day of the week on top of two dishes
 
-<br>
+    <br>
 
 - DETAIL PAGE:
+
   - Render header
   - Navbar (underline "Dishes")
   - Render DISHDETAIL
 
-<br>
+    <br>
+
 - PAGE NOT FOUND
 
-<br>
+    <br>
 
 ## UI
 
