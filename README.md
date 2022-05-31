@@ -1,46 +1,207 @@
-# Getting Started with Create React App
+# Dish Week App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Data
 
-## Available Scripts
+Dishes
 
-In the project directory, you can run:
+## Modifications
 
-### `npm start`
+User:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Create. Can create new Dish with this properties:
+  - Name, Ingredients, Image, Recipe, Cooking time, Veggy (that option filters plates veggy option)
+- Add: Can add a dish from the list to myWeek (personal ordered menu).
+- Delete. Can delete any dish from the general list or mylist.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Form object DB
 
-### `npm test`
+- Dishes (object):
+  - Name (string)
+  - Veggy (Boolean)
+  - Ingredients (string)
+  - Image (string)
+  - Recipe (object):
+    - Resume description (string)
+    - Description (string)
+  - Cooking Time (string)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Components
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+BUTTONS:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- AddButton (+)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  - Dispatch an action to add.
 
-### `npm run eject`
+    <br>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- DeleteButton (-)
+  - Dispatch an action to delete.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- AddRecipeButton
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  - This button allows to navigate to CreateForm
+  - When the recipe is writed, dispatch the save action.
 
-## Learn More
+    <br>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Pagination
+  - ArrowLeft
+  - ArrrowRight
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+LOGO:
+
+- h1
+
+SLOGAN
+
+- h2
+
+HEADER:
+
+- Render Component Logo
+- Logout
+
+NAVBAR
+
+- Dishes / My Week / Create / Logout / Filter Veggy
+
+DISH
+
+- Render h2
+- Render CookingTime
+- Render Image
+- Conditional render (Render AddButton)
+- Render DeleteButton
+- Render Resume Description
+
+DISHLIST
+
+- Render DishComponent (8 units for page)
+
+DISHDETAIL
+
+- Render h2
+- Render CookingTime
+- Render Image
+- Render AddButton
+- Render Description
+
+CREATEFORM
+
+- Name: Label + input
+- Ingredients: Label + input (this input can grow, adding more ingredients)
+- Image: Label + input
+- Description: Label + input
+- Resume Description: Label + input
+- Submitbutton
+- Render X to close
+
+<br>
+
+LOGINFORM
+
+- Name: Label + input (text placeholder)
+- Username: Label + input (text placeholder)
+- Render ArrowLeft to back
+- Render X to close
+
+<br>
+
+SIGNUPFORM:
+
+- Name: Label + input (text placeholder)
+- Username: Label + input (text placeholder)
+- Render ArrowLeft to back
+- Render X to close
+
+<br>
+
+## Pages
+
+---
+
+- LANDING PAGE:
+
+  - This page is used to navigate to SIGN IN or SIGN UP
+  - Render DishWeek Logo, text and icon.
+  - Render Slogan phrase
+  - Render Button SIGN IN
+  - Render Button SIGN UP
+
+    <br>
+
+- SIGN IN PAGE:
+
+  - This page is for logIn users. Navigate to HOMEPAGE (when is logged) or SIGN UP (optional for user when is not registered)
+
+  - Render DishWeek Logo, text and icon.
+
+  - Render Slogan phrase
+
+    <br>
+
+- SIGN UP PAGE:
+
+  - This page is for register a new user. Navigate to SING IN
+
+  - Render DishWeek Logo, text and icon.
+  - Render SLOGAN component
+
+    <br>
+
+- HOMEPAGE:
+
+  - Contains ALL-DISHES
+  - Render header
+  - Navbar (underline "Dishes")
+  - Render Pagination
+
+    <br>
+
+- CREATE RECIPE PAGE:
+
+  - Render h1
+  - Render h2
+  - Render CreateForm
+
+    <br>
+
+- MYWEEK PAGE:
+
+  - BackgroundColor blue
+  - Render header
+  - Navbar (underline "Myweek")
+  - Render Dish with conditional render ("Show details")
+  - Render Selected Dishes
+  - Add Day of the week on top of two dishes
+
+    <br>
+
+- DETAIL PAGE:
+
+  - Render header
+  - Navbar (underline "Dishes")
+  - Render DISHDETAIL
+
+    <br>
+
+- PAGE NOT FOUND
+
+    <br>
+
+## UI
+
+---
+
+- Modal Loading
+- Dish added to myWeek
+- Dish added to dishes
+- Dish deleted
+- Dish updated
+
+- Wrong name or password
