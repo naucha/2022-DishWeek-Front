@@ -1,4 +1,5 @@
 import { useState } from "react";
+import StyledSignUpFormComponent from "./SignUpStyle";
 
 const SignUpForm = (): JSX.Element => {
   const emptyFields = {
@@ -14,7 +15,7 @@ const SignUpForm = (): JSX.Element => {
   };
 
   return (
-    <div>
+    <StyledSignUpFormComponent>
       <h2>Welcome</h2>
       <p className="greeting">Hello there, please sign up to continue</p>
       <form
@@ -47,22 +48,24 @@ const SignUpForm = (): JSX.Element => {
           onChange={changeData}
           placeholder="Enter your password"
         />
-        <button
-          className="sign-up"
-          type="submit"
-          disabled={
-            formData.username === "" ||
-            formData.password === "" ||
-            formData.name === ""
-          }
-        >
-          Sign Up
-        </button>
-        <p className="change-form">
-          Don't have an account? <span>Sign In</span>
-        </p>
+        <div>
+          <button
+            className="sign-up"
+            type="submit"
+            disabled={
+              formData.username === "" ||
+              formData.password === "" ||
+              formData.name === ""
+            }
+          >
+            Sign Up
+          </button>
+          <p className="change-form">
+            Don't have an account? <span>Sign In</span>
+          </p>
+        </div>
       </form>
-    </div>
+    </StyledSignUpFormComponent>
   );
 };
 
