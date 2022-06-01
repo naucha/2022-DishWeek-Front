@@ -1,5 +1,4 @@
 import axios from "axios";
-import { debug } from "console";
 import jwtDecode from "jwt-decode";
 import {
   UserData,

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAppDispatch } from "../../redux/store/hooks";
-import { signUpUserThunk } from "../../redux/thunks/thunks";
+import { registerUserThunk } from "../../redux/thunks/thunks";
+
 import StyledSignUpForm from "./StyledSignUpForm";
 
 const SignUpForm = (): JSX.Element => {
@@ -24,7 +25,7 @@ const SignUpForm = (): JSX.Element => {
 
   const onSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
-    dispatch(signUpUserThunk(formData));
+    dispatch(registerUserThunk(formData));
     resetForm();
   };
 
