@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { registerUserThunk } from "../../redux/thunks/thunks";
-
 import StyledForm from "../styles/StyledForm";
 
-const SignUpForm = (): JSX.Element => {
+const LogInForm = (): JSX.Element => {
   const dispatch = useAppDispatch();
 
   const blanckFields = {
@@ -31,22 +30,14 @@ const SignUpForm = (): JSX.Element => {
 
   return (
     <StyledForm>
-      <h2>Welcome</h2>
-      <p className="greeting">Hello there, please sign up to continue</p>
+      <h2>Welcome back</h2>
+      <p className="greeting">Happy to see you again, let's cook.</p>
       <form
         className="signup-form"
         noValidate
         autoComplete="off"
         onSubmit={onSubmit}
       >
-        <label htmlFor="name"> Name </label>
-        <input
-          id="name"
-          value={formData.name}
-          onChange={changeData}
-          placeholder="Enter your name"
-        />
-
         <label htmlFor="username"> Username </label>
         <input
           id="username"
@@ -63,7 +54,6 @@ const SignUpForm = (): JSX.Element => {
           onChange={changeData}
           placeholder="Enter your password"
         />
-
         <div>
           <button
             className="sign-up"
@@ -74,10 +64,10 @@ const SignUpForm = (): JSX.Element => {
               formData.name === ""
             }
           >
-            Sign Up
+            Log In
           </button>
           <p className="change-form">
-            Have an account? <span>Log In</span>
+            Don't have an account? <span>Sign Up</span>
           </p>
         </div>
       </form>
@@ -85,4 +75,4 @@ const SignUpForm = (): JSX.Element => {
   );
 };
 
-export default SignUpForm;
+export default LogInForm;
