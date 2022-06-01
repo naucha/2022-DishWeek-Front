@@ -80,7 +80,7 @@ describe("Given a SignUpForm component", () => {
       userEvent.type(inputUsername, username);
       userEvent.type(inputPassword, password);
 
-      expect(button).not.toBeDisabled();
+      expect(button).toBeEnabled();
     });
   });
 });
