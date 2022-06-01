@@ -1,5 +1,5 @@
 import { useState } from "react";
-import StyledSignUpFormComponent from "./SignUpStyle";
+import StyledSignUpForm from "./StyledSignUpForm";
 
 const SignUpForm = (): JSX.Element => {
   const emptyFields = {
@@ -15,7 +15,7 @@ const SignUpForm = (): JSX.Element => {
   };
 
   return (
-    <StyledSignUpFormComponent>
+    <StyledSignUpForm>
       <h2>Welcome</h2>
       <p className="greeting">Hello there, please sign up to continue</p>
       <form
@@ -65,7 +65,7 @@ const SignUpForm = (): JSX.Element => {
           </p>
         </div>
       </form>
-    </StyledSignUpFormComponent>
+    </StyledSignUpForm>
   );
 };
 
