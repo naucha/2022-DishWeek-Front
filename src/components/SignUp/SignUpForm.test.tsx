@@ -1,18 +1,21 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 import store from "../../redux/store/store";
 import SignUpForm from "./SignUpForm";
 
 describe("Given a SignUpForm component", () => {
   describe("When it's invoked", () => {
-    test("Then it should render 3 labels", () => {
+    test("Then it should render 3 labels and a button", () => {
       const expectedText = "Welcome";
 
       render(
-        <Provider store={store}>
-          <SignUpForm />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <SignUpForm />
+          </Provider>
+        </BrowserRouter>
       );
 
       const expectedRenderedHeading = screen.getByRole("heading", { level: 2 });
@@ -35,9 +38,11 @@ describe("Given a SignUpForm component", () => {
       const typedText = "Pepito";
 
       render(
-        <Provider store={store}>
-          <SignUpForm />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <SignUpForm />
+          </Provider>
+        </BrowserRouter>
       );
 
       const inputField = screen.getByLabelText("Name");
@@ -49,9 +54,11 @@ describe("Given a SignUpForm component", () => {
   describe("When the user doesn't write in all inputs", () => {
     test("Then the button are disabled", () => {
       render(
-        <Provider store={store}>
-          <SignUpForm />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <SignUpForm />
+          </Provider>
+        </BrowserRouter>
       );
 
       const button = screen.getByRole("button", { name: "Sign Up" });
@@ -67,9 +74,11 @@ describe("Given a SignUpForm component", () => {
       const password = "0000";
 
       render(
-        <Provider store={store}>
-          <SignUpForm />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <SignUpForm />
+          </Provider>
+        </BrowserRouter>
       );
       const inputName = screen.getByLabelText("Name");
       const inputUsername = screen.getByLabelText("Username");
