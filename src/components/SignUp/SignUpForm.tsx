@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { singUpActionCreator } from "../../redux/features/userSlice";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { signUpUserThunk } from "../../redux/thunks/thunks";
 import StyledSignUpForm from "./StyledSignUpForm";
