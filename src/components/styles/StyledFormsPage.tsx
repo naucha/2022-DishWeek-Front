@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-const StyledSignUpPage = styled.div`
+const StyledFormsPage = styled.div`
   display: flex;
   flex-direction: column;
 `;
-export default StyledSignUpPage;
+export default StyledFormsPage;

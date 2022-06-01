@@ -1,12 +1,12 @@
 import LogoComplete from "../../components/LogoComplete/LogoComplete";
 import SignUpForm from "../../components/SignUp/SignUpForm";
-import StyledSignUpPage from "./StyledSignUpPage";
+import StyledFormsPage from "../../components/styles/StyledFormsPage";
 
 export const SignUpPage = () => {
   return (
-    <StyledSignUpPage>
+    <StyledFormsPage>
       <LogoComplete />
       <SignUpForm />
-    </StyledSignUpPage>
+    </StyledFormsPage>
   );
 };
