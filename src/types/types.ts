@@ -17,3 +17,7 @@ export interface UserLoginData {
   username: string;
   password: string;
 }
+
+export interface UserLoginResponse {
+  data: { token: string };
+}
