@@ -8,6 +8,7 @@ const StyledSignUpForm = styled.div`
   padding-left: 14px;
   padding-right: 14px;
   margin-top: 50px;
+  background-color: white;
 
   h2 {
     margin: 20px 0 12px 0;

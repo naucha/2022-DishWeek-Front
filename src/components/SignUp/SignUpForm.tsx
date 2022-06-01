@@ -1,17 +1,33 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { singUpActionCreator } from "../../redux/features/userSlice";
+import { useAppDispatch } from "../../redux/store/hooks";
+import { signUpUserThunk } from "../../redux/thunks/thunks";
 import StyledSignUpForm from "./StyledSignUpForm";
 
 const SignUpForm = (): JSX.Element => {
-  const emptyFields = {
+  const dispatch = useAppDispatch();
+
+  const blanckFields = {
     name: "",
     username: "",
     password: "",
   };
 
-  const [formData, setFormData] = useState(emptyFields);
+  const [formData, setFormData] = useState(blanckFields);
 
   const changeData = (event: { target: { id: any; value: any } }) => {
     setFormData({ ...formData, [event.target.id]: event.target.value });
+  };
+
+  const resetForm = () => {
+    setFormData(blanckFields);
+  };
+
+  const onSubmit = (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+    dispatch(signUpUserThunk(formData));
+    resetForm();
   };
 
   return (
@@ -22,7 +38,7 @@ const SignUpForm = (): JSX.Element => {
         className="signup-form"
         noValidate
         autoComplete="off"
-        onSubmit={() => {}}
+        onSubmit={onSubmit}
       >
         <label htmlFor="name"> Name </label>
         <input

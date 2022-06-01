@@ -1,12 +1,19 @@
 import React from "react";
-import LogoComplete from "./components/LogoComplete/LogoComplete";
+
+import { SignUpPage } from "./pages/SignUp/SignUpPage";
+
+
 import SignUpForm from "./components/SignUp/SignUpForm";
+
 
 function App() {
   return (
     <>
-      <LogoComplete />
+
+      <SignUpPage />
+
       <SignUpForm />
+
     </>
   );
 }
