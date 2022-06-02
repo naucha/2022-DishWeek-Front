@@ -2,8 +2,20 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+
 import store from "../../redux/store/store";
+
 import LogInForm from "./LogInForm";
+
+const mockDispatch = jest.fn();
+
+jest.mock("../../redux/store/hooks", () => ({
+  useAppDispatch: () => mockDispatch,
+}));
+
+jest.mock("../../redux/thunks/thunks", () => ({
+  loginUserThunk: jest.fn(),
+}));
 
 describe("Given a LogInForm component", () => {
   describe("When it's invoked", () => {
@@ -65,24 +77,26 @@ describe("Given a LogInForm component", () => {
     });
   });
 
-  // describe("When the user write in all inputs", () => {
-  //   test("Then the button are enabled", () => {
-  //     const username = "Grillo";
-  //     const password = "0000";
+  describe("When the username and the password fields are fill when the button is clicked", () => {
+    test("Then it dispatch", () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <LogInForm />
+          </Provider>
+        </BrowserRouter>
+      );
+      const userNameInput = screen.getByLabelText("Username");
+      const passwordInput = screen.getByLabelText("Password");
 
-  //     render(
-  //       <Provider store={store}>
-  //         <LogInForm />
-  //       </Provider>
-  //     );
-  //     const inputUsername = screen.getByLabelText("Username");
-  //     const inputPassword = screen.getByLabelText("Password");
-  //     const button = screen.getByRole("button", { name: "Log In" });
+      userEvent.type(userNameInput, "Pepito");
+      userEvent.type(passwordInput, "Grillo");
 
-  //     userEvent.type(inputUsername, username);
-  //     userEvent.type(inputPassword, password);
+      const button = screen.getByRole("button", { name: "Log In" });
 
-  //     expect(button).not.toBeDisabled();
-  //   });
-  // });
+      userEvent.click(button);
+
+      expect(mockDispatch).toHaveBeenCalled();
+    });
+  });
 });
