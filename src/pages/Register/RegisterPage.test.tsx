@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 
 import store from "../../redux/store/store";
 import { RegisterPage } from "./RegisterPage";
@@ -8,14 +9,16 @@ describe("Given a Register Page", () => {
   describe("When it's instantiated", () => {
     test("Then it should render a register Form", () => {
       render(
-        <Provider store={store}>
-          <RegisterPage />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <RegisterPage />
+          </Provider>
+        </BrowserRouter>
       );
 
-      const signUpform = screen.getByLabelText("Username");
+      const registerForm = screen.getByLabelText("Username");
 
-      expect(signUpform).toBeInTheDocument();
+      expect(registerForm).toBeInTheDocument();
     });
   });
 });

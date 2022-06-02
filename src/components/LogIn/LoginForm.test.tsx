@@ -1,18 +1,21 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 import store from "../../redux/store/store";
 import LogInForm from "./LogInForm";
 
-describe("Given a SignUpForm component", () => {
+describe("Given a LogInForm component", () => {
   describe("When it's invoked", () => {
     test("Then it should render 2 labels", () => {
-      const expectedText = "Welcome back";
+      const expectedText = "Welcome";
 
       render(
-        <Provider store={store}>
-          <LogInForm />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <LogInForm />
+          </Provider>
+        </BrowserRouter>
       );
 
       const expectedRenderedHeading = screen.getByRole("heading", { level: 2 });
@@ -33,9 +36,11 @@ describe("Given a SignUpForm component", () => {
       const typedText = "Pepito";
 
       render(
-        <Provider store={store}>
-          <LogInForm />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <LogInForm />
+          </Provider>
+        </BrowserRouter>
       );
 
       const inputField = screen.getByLabelText("Username");
@@ -47,9 +52,11 @@ describe("Given a SignUpForm component", () => {
   describe("When the user doesn't write in all inputs", () => {
     test("Then the button are disabled", () => {
       render(
-        <Provider store={store}>
-          <LogInForm />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <LogInForm />
+          </Provider>
+        </BrowserRouter>
       );
 
       const button = screen.getByRole("button", { name: "Log In" });
@@ -76,6 +83,6 @@ describe("Given a SignUpForm component", () => {
   //     userEvent.type(inputPassword, password);
 
   //     expect(button).not.toBeDisabled();
-  // });
+  //   });
   // });
 });
