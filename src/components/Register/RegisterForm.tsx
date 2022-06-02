@@ -61,7 +61,7 @@ const RegisterForm = (): JSX.Element => {
 
         <div>
           <button
-            className=""
+            className="button"
             type="submit"
             disabled={
               formData.username === "" ||
