@@ -24,7 +24,7 @@ const StyledForm = styled.div`
     font-weight: 600;
   }
 
-  .signup-form {
+  .form {
     display: flex;
     flex-direction: column;
     max-width: 400px;
@@ -62,7 +62,7 @@ const StyledForm = styled.div`
     }
   }
 
-  .sign-up {
+  .button {
     display: flex;
     align-items: center;
     justify-content: center;

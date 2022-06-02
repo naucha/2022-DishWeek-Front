@@ -2,7 +2,7 @@ import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { LogInPage } from "./pages/LogIn/LoginPage";
 
-import { SignUpPage } from "./pages/SignUp/SignUpPage";
+import { RegisterPage } from "./pages/Register/RegisterPage";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<LogInPage />} />
-        <Route path="/register" element={<SignUpPage />} />
+        <Route path="/register" element={<RegisterPage />} />
       </Routes>
     </>
   );

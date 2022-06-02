@@ -1,12 +1,13 @@
 import LogoComplete from "../../components/LogoComplete/LogoComplete";
-import SignUpForm from "../../components/SignUp/SignUpForm";
+import RegisterForm from "../../components/Register/RegisterForm";
+
 import StyledFormsPage from "../../components/styles/StyledFormsPage";
 
-export const SignUpPage = (): JSX.Element => {
+export const RegisterPage = (): JSX.Element => {
   return (
     <StyledFormsPage>
       <LogoComplete />
-      <SignUpForm />
+      <RegisterForm />
     </StyledFormsPage>
   );
 };
