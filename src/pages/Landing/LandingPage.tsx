@@ -1,14 +1,16 @@
 import CreateAccountButton from "../../components/Buttons/CreateAccount/CreateAccountButton";
 import LoginButtonLanding from "../../components/Buttons/LoginButtonLanding/LoginButtonLanding";
 import LogoComplete from "../../components/LogoComplete/LogoComplete";
-import StyledFormsPage from "../../components/styles/StyledFormsPage";
+import StyledPage from "../../components/styles/StyledPage";
 
 export const LandingPage = () => {
   return (
-    <StyledFormsPage>
-      <LogoComplete />
-      <LoginButtonLanding />
-      <CreateAccountButton />
-    </StyledFormsPage>
+    <>
+      <StyledPage>
+        <LogoComplete />
+        <LoginButtonLanding />
+        <CreateAccountButton />
+      </StyledPage>
+    </>
   );
 };

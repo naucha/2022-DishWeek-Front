@@ -1,13 +1,13 @@
 import LogoComplete from "../../components/LogoComplete/LogoComplete";
 import RegisterForm from "../../components/Register/RegisterForm";
 
-import StyledFormsPage from "../../components/styles/StyledFormsPage";
+import StyledPage from "../../components/styles/StyledPage";
 
 export const RegisterPage = (): JSX.Element => {
   return (
-    <StyledFormsPage>
+    <StyledPage>
       <LogoComplete />
       <RegisterForm />
-    </StyledFormsPage>
+    </StyledPage>
   );
 };

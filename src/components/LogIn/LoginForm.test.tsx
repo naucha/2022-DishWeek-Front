@@ -76,6 +76,6 @@ describe("Given a SignUpForm component", () => {
   //     userEvent.type(inputPassword, password);
 
   //     expect(button).not.toBeDisabled();
-  // });
+  //   });
   // });
 });
