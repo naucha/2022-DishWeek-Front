@@ -27,24 +27,27 @@ const StyledForm = styled.div`
   .signup-form {
     display: flex;
     flex-direction: column;
-    width: 360px;
+    max-width: 400px;
     gap: 5px;
 
     label {
       color: #1c3b5e;
       font-weight: 600;
       letter-spacing: 1px;
-      font-size: 20px;
+      font-size: 24px;
       text-align: left;
     }
 
     input {
-      height: 20px;
+      height: 30px;
+      font-size: 18px;
+      font-family: "Helvetica Neue", sans-serif;
+      letter-spacing: 3px;
       border: 1px solid #1c3b5e;
       border-radius: 10px;
       margin: 4px 0 16px 0;
       padding: 10px;
-      background-color: #dfdfdfab;
+      background-color: #ffffff;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
   }

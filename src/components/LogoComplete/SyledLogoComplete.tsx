@@ -13,7 +13,7 @@ export const StyledLogoComplete = styled.div`
     width: 60%;
     display: flex;
     flex-direction: row;
-    margin-top: 20%;
+    margin-top: 0%;
     align-items: flex-end;
     justify-content: center;
 
