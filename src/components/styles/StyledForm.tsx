@@ -67,15 +67,20 @@ const StyledForm = styled.div`
     align-items: center;
     justify-content: center;
     background-color: #1c3b5e;
+    font-family: "Merriweather", sans-serif;
+    letter-spacing: 3px;
+    font-size: 22px;
+    font-weight: bolder;
     color: white;
     width: 320px;
     height: 60px;
+    margin-top: 15px;
     border-radius: 50px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
   .change-form {
     letter-spacing: 2px;
-    margin-top: 10px;
+    margin-top: 25px;
     font-size: 16px;
   }
 `;
