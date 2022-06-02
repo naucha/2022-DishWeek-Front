@@ -8,7 +8,6 @@ const LogInForm = (): JSX.Element => {
   const dispatch = useAppDispatch();
 
   const blanckFields = {
-    name: "",
     username: "",
     password: "",
   };
@@ -34,7 +33,7 @@ const LogInForm = (): JSX.Element => {
       <h2>Welcome back</h2>
       <p className="greeting">Happy to see you again, let's cook.</p>
       <form className="form" noValidate autoComplete="off" onSubmit={onSubmit}>
-        <label htmlFor="username"> Username </label>
+        <label htmlFor="username">Username</label>
         <input
           id="username"
           value={formData.username}
@@ -42,7 +41,7 @@ const LogInForm = (): JSX.Element => {
           placeholder="Enter your username"
         />
 
-        <label htmlFor="password"> Password </label>
+        <label htmlFor="password">Password</label>
         <input
           id="password"
           type="password"
@@ -54,11 +53,7 @@ const LogInForm = (): JSX.Element => {
           <button
             className="button"
             type="submit"
-            disabled={
-              formData.username === "" ||
-              formData.password === "" ||
-              formData.name === ""
-            }
+            disabled={formData.username === "" || formData.password === ""}
           >
             Log In
           </button>

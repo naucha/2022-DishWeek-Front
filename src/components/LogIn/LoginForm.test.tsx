@@ -2,9 +2,20 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+
 import store from "../../redux/store/store";
-import { loginUserThunk } from "../../redux/thunks/thunks";
+
 import LogInForm from "./LogInForm";
+
+const mockDispatch = jest.fn();
+
+jest.mock("../../redux/store/hooks", () => ({
+  useAppDispatch: () => mockDispatch,
+}));
+
+jest.mock("../../redux/thunks/thunks", () => ({
+  loginUserThunk: jest.fn(),
+}));
 
 describe("Given a LogInForm component", () => {
   describe("When it's invoked", () => {
@@ -66,27 +77,26 @@ describe("Given a LogInForm component", () => {
     });
   });
 
-  // describe("When the username and the password fields are fill and the button is clicked", () => {
-  //   test("Then it should renfer the fields empty", () => {
-  //     const inputText = "Pepito";
+  describe("When the username and the password fields are fill when the button is clicked", () => {
+    test("Then it dispatch", () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <LogInForm />
+          </Provider>
+        </BrowserRouter>
+      );
+      const userNameInput = screen.getByLabelText("Username");
+      const passwordInput = screen.getByLabelText("Password");
 
-  //     render(
-  //       <BrowserRouter>
-  //         <Provider store={store}>
-  //           <LogInForm />
-  //         </Provider>
-  //       </BrowserRouter>
-  //     );
+      userEvent.type(userNameInput, "Pepito");
+      userEvent.type(passwordInput, "Grillo");
 
-  //     userEvent.type(screen.getByLabelText("Username"), inputText);
-  //     userEvent.type(screen.getByLabelText("Password"), inputText);
+      const button = screen.getByRole("button", { name: "Log In" });
 
-  //     const button = screen.getByRole("button");
+      userEvent.click(button);
 
-  //     userEvent.click(button);
-
-  //     expect(screen.getByLabelText("Username")).toHaveValue("");
-  //     expect(screen.getByLabelText("Password")).toHaveValue("");
-  //   });
-  // });
+      expect(mockDispatch).toHaveBeenCalled();
+    });
+  });
 });
