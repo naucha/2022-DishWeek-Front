@@ -1,7 +1,6 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import CreateAccountButton from "./components/Buttons/CreateAccount/CreateAccountButton";
-import LoginButtonLanding from "./components/Buttons/LoginButtonLanding/LoginButtonLanding";
+import { LandingPage } from "./pages/Landing/LandingPage";
 import { LogInPage } from "./pages/LogIn/LoginPage";
 
 import { RegisterPage } from "./pages/Register/RegisterPage";
@@ -9,13 +8,12 @@ import { RegisterPage } from "./pages/Register/RegisterPage";
 function App() {
   return (
     <>
-      <LoginButtonLanding></LoginButtonLanding>
-      <CreateAccountButton></CreateAccountButton>
-      {/* <Routes>
-        <Route path="/" element={<Navigate to="/login" />} />
+      <Routes>
+        <Route path="/" element={<Navigate to="/landing" />} />
+        <Route path="/landing" element={<LandingPage />} />
         <Route path="/login" element={<LogInPage />} />
         <Route path="/register" element={<RegisterPage />} />
-      </Routes> */}
+      </Routes>
     </>
   );
 }
