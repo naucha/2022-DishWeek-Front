@@ -3,6 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import store from "../../redux/store/store";
+import { loginUserThunk } from "../../redux/thunks/thunks";
 import LogInForm from "./LogInForm";
 
 describe("Given a LogInForm component", () => {
@@ -65,24 +66,27 @@ describe("Given a LogInForm component", () => {
     });
   });
 
-  // describe("When the user write in all inputs", () => {
-  //   test("Then the button are enabled", () => {
-  //     const username = "Grillo";
-  //     const password = "0000";
+  // describe("When the username and the password fields are fill and the button is clicked", () => {
+  //   test("Then it should renfer the fields empty", () => {
+  //     const inputText = "Pepito";
 
   //     render(
-  //       <Provider store={store}>
-  //         <LogInForm />
-  //       </Provider>
+  //       <BrowserRouter>
+  //         <Provider store={store}>
+  //           <LogInForm />
+  //         </Provider>
+  //       </BrowserRouter>
   //     );
-  //     const inputUsername = screen.getByLabelText("Username");
-  //     const inputPassword = screen.getByLabelText("Password");
-  //     const button = screen.getByRole("button", { name: "Log In" });
 
-  //     userEvent.type(inputUsername, username);
-  //     userEvent.type(inputPassword, password);
+  //     userEvent.type(screen.getByLabelText("Username"), inputText);
+  //     userEvent.type(screen.getByLabelText("Password"), inputText);
 
-  //     expect(button).not.toBeDisabled();
+  //     const button = screen.getByRole("button");
+
+  //     userEvent.click(button);
+
+  //     expect(screen.getByLabelText("Username")).toHaveValue("");
+  //     expect(screen.getByLabelText("Password")).toHaveValue("");
   //   });
   // });
 });

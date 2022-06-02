@@ -15,7 +15,7 @@ const LogInForm = (): JSX.Element => {
 
   const [formData, setFormData] = useState(blanckFields);
 
-  const changeData = (event: { target: { id: any; value: any } }) => {
+  const changeData = (event: { target: { id: string; value: string } }) => {
     setFormData({ ...formData, [event.target.id]: event.target.value });
   };
 
@@ -25,9 +25,8 @@ const LogInForm = (): JSX.Element => {
 
   const onSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
-    const dispatchedData = { ...formData };
+    dispatch(loginUserThunk(formData));
     resetForm();
-    dispatch(loginUserThunk(dispatchedData));
   };
 
   return (
