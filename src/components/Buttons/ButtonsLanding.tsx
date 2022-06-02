@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import CreateAccountButton from "./CreateAccount/CreateAccountButton";
 import LoginButtonLanding from "./LoginButtonLanding/LoginButtonLanding";
@@ -13,8 +14,12 @@ const StyledButtonsLanding = styled.div`
 export const ButtonsLanding = () => {
   return (
     <StyledButtonsLanding>
-      <LoginButtonLanding />
-      <CreateAccountButton />
+      <NavLink to={"/login"} style={{ textDecoration: "none" }}>
+        <LoginButtonLanding />
+      </NavLink>
+      <NavLink to={"/register"} style={{ textDecoration: "none" }}>
+        <CreateAccountButton />
+      </NavLink>
     </StyledButtonsLanding>
   );
 };

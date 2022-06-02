@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { loginUserThunk } from "../../redux/thunks/thunks";
 import StyledForm from "../styles/StyledForm";
@@ -63,7 +64,11 @@ const LogInForm = (): JSX.Element => {
             Log In
           </button>
           <p className="change-form">
-            Don't have an account? <span>Sign Up</span>
+            Don't have an account?{" "}
+            <NavLink to={"/register"} style={{ textDecoration: "none" }}>
+              {" "}
+              <span>Sign Up</span>
+            </NavLink>
           </p>
         </div>
       </form>

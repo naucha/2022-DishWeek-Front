@@ -1,4 +1,5 @@
 import { SyntheticEvent, useState } from "react";
+import { NavLink } from "react-router-dom";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { registerUserThunk } from "../../redux/thunks/thunks";
 
@@ -72,7 +73,11 @@ const RegisterForm = (): JSX.Element => {
             Sign Up
           </button>
           <p className="change-form">
-            Have an account? <span>Log In</span>
+            Have an account?{" "}
+            <NavLink to={"/login"} style={{ textDecoration: "none" }}>
+              {" "}
+              <span>Log In</span>
+            </NavLink>
           </p>
         </div>
       </form>
