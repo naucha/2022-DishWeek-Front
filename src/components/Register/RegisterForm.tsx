@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { SyntheticEvent, useState } from "react";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { registerUserThunk } from "../../redux/thunks/thunks";
 
 import StyledForm from "../styles/StyledForm";
 
-const SignUpForm = (): JSX.Element => {
+const RegisterForm = (): JSX.Element => {
   const dispatch = useAppDispatch();
 
   const blanckFields = {
@@ -15,7 +15,7 @@ const SignUpForm = (): JSX.Element => {
 
   const [formData, setFormData] = useState(blanckFields);
 
-  const changeData = (event: { target: { id: any; value: any } }) => {
+  const changeData = (event: { target: { id: string; value: string } }) => {
     setFormData({ ...formData, [event.target.id]: event.target.value });
   };
 
@@ -23,7 +23,7 @@ const SignUpForm = (): JSX.Element => {
     setFormData(blanckFields);
   };
 
-  const onSubmit = (event: { preventDefault: () => void }) => {
+  const onSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
     dispatch(registerUserThunk(formData));
     resetForm();
@@ -33,12 +33,7 @@ const SignUpForm = (): JSX.Element => {
     <StyledForm>
       <h2>Welcome</h2>
       <p className="greeting">Hello there, please sign up to continue</p>
-      <form
-        className="signup-form"
-        noValidate
-        autoComplete="off"
-        onSubmit={onSubmit}
-      >
+      <form className="form" noValidate autoComplete="off" onSubmit={onSubmit}>
         <label htmlFor="name"> Name </label>
         <input
           id="name"
@@ -66,7 +61,7 @@ const SignUpForm = (): JSX.Element => {
 
         <div>
           <button
-            className="sign-up"
+            className=""
             type="submit"
             disabled={
               formData.username === "" ||
@@ -85,4 +80,4 @@ const SignUpForm = (): JSX.Element => {
   );
 };
 
-export default SignUpForm;
+export default RegisterForm;

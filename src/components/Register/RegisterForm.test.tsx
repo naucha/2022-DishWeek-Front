@@ -3,9 +3,9 @@ import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import store from "../../redux/store/store";
-import SignUpForm from "./SignUpForm";
+import RegisterForm from "./RegisterForm";
 
-describe("Given a SignUpForm component", () => {
+describe("Given a Register component", () => {
   describe("When it's invoked", () => {
     test("Then it should render 3 labels and a button", () => {
       const expectedText = "Welcome";
@@ -13,7 +13,7 @@ describe("Given a SignUpForm component", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <SignUpForm />
+            <RegisterForm />
           </Provider>
         </BrowserRouter>
       );
@@ -40,7 +40,7 @@ describe("Given a SignUpForm component", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <SignUpForm />
+            <RegisterForm />
           </Provider>
         </BrowserRouter>
       );
@@ -56,7 +56,7 @@ describe("Given a SignUpForm component", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <SignUpForm />
+            <RegisterForm />
           </Provider>
         </BrowserRouter>
       );
@@ -76,7 +76,7 @@ describe("Given a SignUpForm component", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <SignUpForm />
+            <RegisterForm />
           </Provider>
         </BrowserRouter>
       );
