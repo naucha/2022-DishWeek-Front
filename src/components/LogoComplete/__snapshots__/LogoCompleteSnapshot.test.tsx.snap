@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a LogoComplete When it's rendered Then it should match this snapshot 1`] = `
+<div
+  className="sc-bczRLJ liOTkB"
+>
+  <div
+    className="container-logo"
+  >
+    <h1>
+      Dish
+      <br />
+      Week
+    </h1>
+    <img
+      alt="Icon bowl of food"
+      src="/images/icons/bowl-food.svg"
+    />
+  </div>
+  <p>
+    Hello there, create your 
+    <br />
+    weekly menu
+  </p>
+</div>
+`;

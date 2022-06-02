@@ -5,7 +5,7 @@ import store from "../../redux/store/store";
 import { LandingPage } from "./LandingPage";
 
 describe("Given a Landing Page", () => {
-  describe("When it's instantiated", () => {
+  describe("When it's rendered", () => {
     test("Then it should render two buttons", () => {
       render(
         <BrowserRouter>
