@@ -1,4 +1,4 @@
-import { mockUserRegister } from "../../mocks/mocksUser";
+import { mockUserRegister } from "../../mocks/mocks";
 import userSlice, { logInActionCreator } from "./userSlice";
 
 describe("Given a user login reducer", () => {

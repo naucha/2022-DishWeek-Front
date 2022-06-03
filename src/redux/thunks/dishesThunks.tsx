@@ -13,5 +13,7 @@ export const getDishesThunk = () => async (dispatch: AppDispatch) => {
     if (dishes) {
       dispatch(loadDishesActionCreator(dishes));
     }
-  } catch (error) {}
+  } catch (error: any) {
+    return error.message;
+  }
 };

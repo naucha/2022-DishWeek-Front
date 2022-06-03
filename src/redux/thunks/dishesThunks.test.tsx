@@ -1,4 +1,4 @@
-import { mockDishes } from "../../mocks/mocksUser";
+import { mockDish } from "../../mocks/mocks";
 import { server } from "../../mocks/server";
 import { loadDishesActionCreator } from "../features/dishesSlice";
 import { getDishesThunk } from "./dishesThunks";
@@ -8,17 +8,16 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 describe("Given getDishesThunk", () => {
-  describe("When its invoked", () => {
+  describe("When its invoked with", () => {
     test("Then it should dispatch loadDishesActionCreator", async () => {
       const dispatch = jest.fn();
-
-      const loadAction = loadDishesActionCreator(mockDishes);
+      const action = loadDishesActionCreator(mockDish);
 
       const thunk = getDishesThunk();
 
       await thunk(dispatch);
 
-      expect(dispatch).toHaveBeenCalledWith(loadAction);
+      expect(dispatch).toHaveBeenCalledWith(action);
     });
   });
 });
