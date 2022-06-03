@@ -6,7 +6,6 @@ export interface UserData {
 export interface UserState extends UserData {
   logged: boolean;
 }
-
 export interface UserRegisterData {
   name: string;
   username: string;
@@ -29,7 +28,7 @@ export interface DishesData {
   image: string;
   resume: string;
   recipe: string;
-  cooking: string;
+  cookingTime: string;
   daysOfWeek: string[];
   createdBy: string;
 }

@@ -1,4 +1,5 @@
 import { rest } from "msw";
+import { mockDishes } from "./mocksUser";
 
 const mockNewUser = {
   name: "Pepito",
@@ -15,5 +16,9 @@ export const handlers = [
   ),
   rest.post(`${process.env.REACT_APP_API_URL}user/login`, (req, res, ctx) => {
     return res(ctx.status(201), ctx.json(mockNewUser));
+  }),
+
+  rest.get(`${process.env.REACT_APP_API_URL}dishes/list`, (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(mockDishes));
   }),
 ];

@@ -13,7 +13,7 @@ jest.mock("../../redux/store/hooks", () => ({
   useAppDispatch: () => mockDispatch,
 }));
 
-jest.mock("../../redux/thunks/thunks", () => ({
+jest.mock("../../redux/thunks/userThunks", () => ({
   loginUserThunk: jest.fn(),
 }));
 

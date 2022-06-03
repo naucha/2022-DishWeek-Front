@@ -7,7 +7,7 @@ import { LogInPage } from "./pages/LogIn/LoginPage";
 import { RegisterPage } from "./pages/Register/RegisterPage";
 import { logInActionCreator } from "./redux/features/userSlice";
 import { useAppDispatch } from "./redux/store/hooks";
-import { getDishesThunk } from "./redux/thunks/dishesThunk";
+import { getDishesThunk } from "./redux/thunks/dishesThunks";
 import { UserData } from "./types/types";
 
 function App() {
