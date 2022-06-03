@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useAppDispatch } from "../../redux/store/hooks";
-import { loginUserThunk } from "../../redux/thunks/thunks";
+import { loginUserThunk } from "../../redux/thunks/userThunks";
 import StyledForm from "../styles/StyledForm";
 
 const LogInForm = (): JSX.Element => {
