@@ -1,7 +1,7 @@
 import { SyntheticEvent, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useAppDispatch } from "../../redux/store/hooks";
-import { registerUserThunk } from "../../redux/thunks/thunks";
+import { registerUserThunk } from "../../redux/thunks/userThunks";
 
 import StyledForm from "../styles/StyledForm";
 

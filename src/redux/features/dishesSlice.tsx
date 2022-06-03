@@ -1,29 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { DishesState } from "../../types/types";
+import { DishesData } from "../../types/types";
 
-const initialState = [
-  {
-    name: "",
-    veggy: false,
-    ingredients: [],
-    image: "",
-    resume: "",
-    recipe: "",
-    cooking: "",
-    daysOfWeek: [],
-  },
-] as DishesState;
+const initialState: DishesData[] = [];
 
-const dishSlice = createSlice({
+const dishesSlice = createSlice({
   name: "dishes",
   initialState,
   reducers: {
-    loadDishes: (dishes: DishesState, action: PayloadAction<DishesState>) => [
+    loadDishes: (dishes, action: PayloadAction<DishesData[]>) => [
       ...action.payload,
     ],
   },
 });
 
-export const { loadDishes: loadDishesActionCreator } = dishSlice.actions;
+export const { loadDishes: loadDishesActionCreator } = dishesSlice.actions;
 
-export default dishSlice.reducer;
+export default dishesSlice.reducer;

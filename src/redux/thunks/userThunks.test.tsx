@@ -1,5 +1,5 @@
 import { server } from "../../mocks/server";
-import { loginUserThunk } from "./thunks";
+import { loginUserThunk } from "./userThunks";
 
 beforeEach(() => server.listen());
 afterEach(() => server.resetHandlers());
