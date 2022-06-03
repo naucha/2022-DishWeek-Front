@@ -20,9 +20,8 @@ Form object DB
   - Veggy (Boolean)
   - Ingredients (string)
   - Image (string)
-  - Recipe (object):
-    - Resume description (string)
-    - Description (string)
+  - Resume description (string)
+  - Description (string)
   - Cooking Time (string)
 
 ## Components
