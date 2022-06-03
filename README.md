@@ -23,6 +23,7 @@ Form object DB
   - Resume description (string)
   - Description (string)
   - Cooking Time (string)
+  - DaysOfWeek
 
 ## Components
 
