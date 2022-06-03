@@ -21,3 +21,15 @@ export interface UserLoginData {
 export interface UserLoginResponse {
   data: { token: string };
 }
+
+export interface DishesData {
+  name: string;
+  veggy: boolean;
+  ingredients: string[];
+  image: string;
+  resume: string;
+  recipe: string;
+  cooking: string;
+  daysOfWeek: string[];
+}
+export interface DishesState extends Array<DishesData> {}
