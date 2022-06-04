@@ -3,12 +3,12 @@ import React, { useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { LandingPage } from "./pages/Landing/LandingPage";
 import { LogInPage } from "./pages/LogIn/LoginPage";
-
 import { RegisterPage } from "./pages/Register/RegisterPage";
 import { logInActionCreator } from "./redux/features/userSlice";
 import { useAppDispatch } from "./redux/store/hooks";
 import { getDishesThunk } from "./redux/thunks/dishesThunks";
 import { UserData } from "./types/types";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -30,6 +30,7 @@ function App() {
         <Route path="/login" element={<LogInPage />} />
         <Route path="/register" element={<RegisterPage />} />
       </Routes>
+      <Toaster />
     </>
   );
 }

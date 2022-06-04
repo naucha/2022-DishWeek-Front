@@ -71,12 +71,25 @@ const StyledForm = styled.div`
     letter-spacing: 3px;
     font-size: 22px;
     font-weight: bolder;
+    cursor: pointer;
     color: white;
     width: 320px;
+    transform: rotateX("23");
     height: 60px;
     margin-top: 15px;
     border-radius: 50px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      transform: scale(0);
+      transition: transform 0.3 ease-in;
+      mix-blend-mode: difference;
+    }
   }
   .change-form {
     letter-spacing: 2px;
