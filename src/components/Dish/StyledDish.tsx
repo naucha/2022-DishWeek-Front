@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
-export const StyledDishComponent = styled.div`
+export const StyledDishComponent = styled.li`
   display: flex;
   flex-direction: column;
-  border: 2px solid black;
   border-radius: 32px;
   letter-spacing: 2px;
   align-items: center;
@@ -13,16 +12,30 @@ export const StyledDishComponent = styled.div`
   width: 350px;
   height: 550px;
   margin-top: 10px;
-  padding-left: 15px;
-  padding-right: 15px;
-  border: 2px solid #fff;
-  .image-recipe {
+  padding-left: 18px;
+  padding-right: 18px;
+  border: 3px solid #fff;
+
+  .image-container {
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #fff;
+    width: 13rem;
+    height: 13rem;
+    background-image: url("happy-face.jpg");
+    background-size: cover;
     align-items: center;
     justify-content: center;
-    width: 236px;
-    height: 236px;
-    border: 2px solid #fff;
-    border-radius: 50%;
+    display: flex;
+  }
+
+  .image-recipe {
+    align-items: center;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    transform: scale(1.2);
+    max-width: 240px;
   }
 
   .info-text {

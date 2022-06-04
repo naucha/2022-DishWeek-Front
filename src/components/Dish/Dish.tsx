@@ -2,7 +2,7 @@ import { DishesData } from "../../types/types";
 import { StyledDishComponent } from "./StyledDish";
 
 export const Dish = ({
-  dishes: { name, image, resume, cookingTime },
+  dishes: { id, name, image, resume, cookingTime, createdBy },
 }: {
   dishes: DishesData;
 }) => {
@@ -16,6 +16,7 @@ export const Dish = ({
         <img className="image-recipe" alt="plate of" src={image} />
       </div>
       <p>{resume}</p>
+      <p>Created by: {createdBy}</p>
       <div className="dish_buttons">
         <img
           className="buttons button-minus"

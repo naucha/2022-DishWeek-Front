@@ -22,6 +22,7 @@ export interface UserLoginResponse {
 }
 
 export interface DishesData {
+  id: string;
   name: string;
   veggy: boolean;
   ingredients: string[];
