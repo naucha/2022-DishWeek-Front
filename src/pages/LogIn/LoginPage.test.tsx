@@ -4,12 +4,13 @@ import { BrowserRouter } from "react-router-dom";
 import store from "../../redux/store/store";
 import { LogInPage } from "./LoginPage";
 
-describe("Given a Register Page", () => {
+describe("Given a Login Page", () => {
   describe("When it's instantiated", () => {
-    test("Then it should render a register Form", () => {
+    test("Then it should render a Login Form", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
+            ∫
             <LogInPage />
           </Provider>
         </BrowserRouter>

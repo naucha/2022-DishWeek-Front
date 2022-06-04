@@ -46,7 +46,7 @@ export const StyledDishComponent = styled.li`
     margin: 0;
     margin-top: 15px;
     text-align: left;
-    color: #1c3b5e;
+    color: var(--fc-primary);
     font-size: 35px;
     font-weight: 700;
   }

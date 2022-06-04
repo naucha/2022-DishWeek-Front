@@ -33,7 +33,7 @@ const RegisterForm = (): JSX.Element => {
   return (
     <StyledForm>
       <h2>Welcome</h2>
-      <p className="greeting">Hello there, please sign up to continue</p>
+      <p className="greeting">Hello, please sign up to continue</p>
       <form className="form" noValidate autoComplete="off" onSubmit={onSubmit}>
         <label htmlFor="name"> Name </label>
         <input
@@ -76,7 +76,7 @@ const RegisterForm = (): JSX.Element => {
             Have an account?{" "}
             <NavLink to={"/login"} style={{ textDecoration: "none" }}>
               {" "}
-              <span>Log In</span>
+              <span className="change-form__link">Log In</span>
             </NavLink>
           </p>
         </div>

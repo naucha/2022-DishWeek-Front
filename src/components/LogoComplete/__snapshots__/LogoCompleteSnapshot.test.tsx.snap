@@ -2,7 +2,7 @@
 
 exports[`Given a LogoComplete When it's rendered Then it should match this snapshot 1`] = `
 <div
-  className="sc-bczRLJ liOTkB"
+  className="sc-bczRLJ dLJPrl"
 >
   <div
     className="container-logo"

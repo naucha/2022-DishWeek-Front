@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledLogoComplete = styled.div`
-  background-color: #c6c9bf;
+  background-color: var(--bg_primary);
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -20,7 +20,7 @@ export const StyledLogoComplete = styled.div`
     h1 {
       margin: 0;
       padding: 0;
-      color: #1c3b5e;
+      color: var(--fc-primary);
       font-size: 60px;
       letter-spacing: 5px;
     }
@@ -35,7 +35,7 @@ export const StyledLogoComplete = styled.div`
   }
 
   p {
-    color: #4242429e;
+    color: var(--fc-third);
     text-align: center;
     font-weight: 900;
     letter-spacing: 2px;

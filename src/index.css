@@ -1,3 +1,12 @@
+:root {
+  --bg-primary: #e6e5d0;
+  --bg-secondary: #d4eeff;
+  --fc-primary: #0f2436;
+  --fc-secondary: #3e3e3e;
+  --fc-third: #393232;
+  --red: #9f2436;
+}
+
 body {
   margin: 0;
   font-family: "Merriweather", serif, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
