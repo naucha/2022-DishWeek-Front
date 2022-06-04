@@ -1,4 +1,4 @@
-import { mockUserRegister } from "../../mocks/mocks";
+import { mockUserRegisterPage } from "../../mocks/mocks";
 import { server } from "../../mocks/server";
 import { loginUserThunk, registerUserThunk } from "./userThunks";
 
@@ -30,7 +30,7 @@ describe("Given the registerThunk", () => {
     test("Then it should call dispatch", () => {
       const dispatch = jest.fn();
 
-      const thunk = registerUserThunk(mockUserRegister);
+      const thunk = registerUserThunk(mockUserRegisterPage);
 
       thunk(dispatch());
 
