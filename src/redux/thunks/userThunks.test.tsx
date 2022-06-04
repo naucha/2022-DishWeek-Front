@@ -1,5 +1,6 @@
+import { mockUserRegisterPage } from "../../mocks/mocks";
 import { server } from "../../mocks/server";
-import { loginUserThunk } from "./userThunks";
+import { loginUserThunk, registerUserThunk } from "./userThunks";
 
 beforeEach(() => server.listen());
 afterEach(() => server.resetHandlers());
@@ -19,6 +20,19 @@ describe("Given the loginUserThunk", () => {
         password: "Grillo",
       });
       await thunk(dispatch);
+
+      expect(dispatch).toHaveBeenCalled();
+    });
+  });
+});
+describe("Given the registerThunk", () => {
+  describe("When its invoked", () => {
+    test("Then it should call dispatch", () => {
+      const dispatch = jest.fn();
+
+      const thunk = registerUserThunk(mockUserRegisterPage);
+
+      thunk(dispatch());
 
       expect(dispatch).toHaveBeenCalled();
     });

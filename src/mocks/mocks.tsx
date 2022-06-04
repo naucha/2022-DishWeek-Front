@@ -1,7 +1,12 @@
 export const mockUserRegister = {
   name: "Pepito",
   username: "Grillo",
-  id: "abcd",
+  id: "sa",
+};
+export const mockUserRegisterPage = {
+  name: "Pepito",
+  username: "Grillo",
+  password: "1234",
 };
 
 export const mockDish = [

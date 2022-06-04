@@ -2,8 +2,16 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+import { mockUserRegisterPage } from "../../mocks/mocks";
 import store from "../../redux/store/store";
 import RegisterForm from "./RegisterForm";
+
+const mockDispatch = jest.fn();
+
+jest.mock("react-redux", () => ({
+  ...jest.requireActual("react-redux"),
+  useDispatch: () => mockDispatch,
+}));
 
 describe("Given a Register component", () => {
   describe("When it's invoked", () => {
@@ -90,6 +98,32 @@ describe("Given a Register component", () => {
       userEvent.type(inputPassword, password);
 
       expect(button).toBeEnabled();
+    });
+  });
+  describe("When the button is clicked", () => {
+    test("Then dispatch the registerUserThunk", () => {
+      const userData = mockUserRegisterPage;
+
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <RegisterForm />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const inputName = screen.getByLabelText("Name");
+      const inputUsername = screen.getByLabelText("Username");
+      const inputPassword = screen.getByLabelText("Password");
+
+      userEvent.type(inputName, userData.name);
+      userEvent.type(inputUsername, userData.username);
+      userEvent.type(inputPassword, userData.password);
+
+      const button = screen.getByRole("button", { name: "Sign Up" });
+      userEvent.click(button);
+
+      expect(mockDispatch).toHaveBeenCalled();
     });
   });
 });
