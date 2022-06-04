@@ -1,10 +1,10 @@
-import { Dish } from "../../components/Dish/Dish";
+import { DishesList } from "../../components/DishList/DishList";
 import StyledPage from "../../components/styles/StyledPage";
 
-export const LogInPage = () => {
+export const HomePage = () => {
   return (
     <StyledPage>
-      <Dish />
+      <DishesList />
     </StyledPage>
   );
 };

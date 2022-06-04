@@ -2,7 +2,7 @@ import { DishesData } from "../../types/types";
 import { StyledDishComponent } from "./StyledDish";
 
 export const Dish = ({
-  dishes: { name, image, resume, cookingTime },
+  dishes: { id, name, image, resume, cookingTime },
 }: {
   dishes: DishesData;
 }) => {

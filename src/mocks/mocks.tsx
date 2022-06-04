@@ -11,6 +11,7 @@ export const mockUserRegisterPage = {
 
 export const mockDish = [
   {
+    id: "123ea",
     name: "macarrones",
     veggy: true,
     ingredients: ["cebolla", "pasta", "tomate"],
@@ -26,6 +27,7 @@ export const mockDish = [
 
 export const mockDishes = [
   {
+    id: "123ea",
     name: "macarrones",
     veggy: true,
     ingredients: ["cebolla", "pasta", "tomate"],
@@ -38,6 +40,7 @@ export const mockDishes = [
     createdBy: "Pepito",
   },
   {
+    id: "1dsaa",
     name: "sopa",
     veggy: true,
     ingredients: ["tomate"],

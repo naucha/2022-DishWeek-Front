@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledDishComponent = styled.div`
+export const StyledDishComponent = styled.li`
   display: flex;
   flex-direction: column;
   border: 2px solid black;
