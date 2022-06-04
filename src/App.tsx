@@ -9,6 +9,7 @@ import { useAppDispatch } from "./redux/store/hooks";
 import { getDishesThunk } from "./redux/thunks/dishesThunks";
 import { UserData } from "./types/types";
 import { Toaster } from "react-hot-toast";
+import { HomePage } from "./pages/Home/HomePage";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -29,6 +30,7 @@ function App() {
         <Route path="/landing" element={<LandingPage />} />
         <Route path="/login" element={<LogInPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/home" element={<HomePage />} />
       </Routes>
       <Toaster />
     </>
