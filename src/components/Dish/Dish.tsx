@@ -13,7 +13,7 @@ export const Dish = ({
         <p>{cookingTime}</p>
       </div>
       <div className="image-container">
-        <img className="image-recipe" alt="plate of" src={image} />
+        <img className="image-recipe" alt={name} src={image} />
       </div>
       <p>{resume}</p>
       <p>Created by: {createdBy}</p>
