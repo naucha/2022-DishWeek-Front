@@ -23,7 +23,7 @@ export const deleteDishesThunk =
     const route: string = `${process.env.REACT_APP_API_URL}dishes/${id}`;
     const token = localStorage.getItem("token");
     try {
-      const { status } = await axios.get(route, {
+      const { status } = await axios.delete(route, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
