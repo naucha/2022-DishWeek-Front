@@ -10,6 +10,7 @@ import { getDishesThunk } from "./redux/thunks/dishesThunks";
 import { UserData } from "./types/types";
 import { Toaster } from "react-hot-toast";
 import { HomePage } from "./pages/Home/HomePage";
+import GateController from "./components/GateController/GateController";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -25,14 +26,23 @@ function App() {
 
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Navigate to="/landing" />} />
-        <Route path="/landing" element={<LandingPage />} />
-        <Route path="/login" element={<LogInPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/home" element={<HomePage />} />
-      </Routes>
-      <Toaster />
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Navigate to="/landing" />} />
+          <Route path="/landing" element={<LandingPage />} />
+          <Route path="/login" element={<LogInPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route
+            path="/home"
+            element={
+              <GateController>
+                <HomePage />
+              </GateController>
+            }
+          />
+        </Routes>
+        <Toaster />
+      </div>
     </>
   );
 }

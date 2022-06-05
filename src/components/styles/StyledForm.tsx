@@ -5,33 +5,29 @@ const StyledForm = styled.div`
   flex-direction: column;
   text-align: left;
   letter-spacing: 2px;
-  padding-left: 14px;
-  padding-right: 14px;
-  margin-top: 50px;
   background-color: white;
+  align-items: center;
 
   h2 {
-    margin: 20px 0 12px 0;
-    text-align: left;
+    margin: 20px 0 0 0;
     font-size: 35px;
-    color: #1c3b5e;
+    color: var(--fc-primary);
   }
 
   p {
-    margin-bottom: 25px;
-    margin-top: -10px;
-    color: #4242429e;
+    margin: 10px 0 20px 0;
+    color: var(--fc-secondary);
     font-weight: 600;
   }
 
   .form {
     display: flex;
     flex-direction: column;
-    max-width: 400px;
-    gap: 5px;
+    max-width: 420px;
+    gap: 10px;
 
     label {
-      color: #1c3b5e;
+      color: var(--fc-primary);
       font-weight: 600;
       letter-spacing: 1px;
       font-size: 24px;
@@ -41,14 +37,15 @@ const StyledForm = styled.div`
     input {
       height: 30px;
       font-size: 18px;
+
       font-family: "Helvetica Neue", sans-serif;
       letter-spacing: 3px;
-      border: 1px solid #1c3b5e;
+      border: 1px solid var(--fc-primary);
       border-radius: 10px;
-      margin: 4px 0 16px 0;
+      margin: 0px 0 16px 0;
       padding: 10px;
       background-color: #ffffff;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
     }
   }
 
@@ -58,7 +55,7 @@ const StyledForm = styled.div`
     align-items: center;
     justify-content: center;
     span {
-      color: #1c3b5e;
+      color: var(--fc-secondary);
     }
   }
 
@@ -66,35 +63,30 @@ const StyledForm = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #1c3b5e;
+    width: 320px;
+    height: 60px;
+    cursor: pointer;
+    color: var(--bg-primary);
+    background-color: var(--fc-primary);
     font-family: "Merriweather", sans-serif;
     letter-spacing: 3px;
     font-size: 22px;
     font-weight: bolder;
-    cursor: pointer;
-    color: white;
-    width: 320px;
-    transform: rotateX("23");
-    height: 60px;
-    margin-top: 15px;
     border-radius: 50px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
     &::after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      transform: scale(0);
-      transition: transform 0.3 ease-in;
-      mix-blend-mode: difference;
+      transition: transform ease-in;
     }
   }
   .change-form {
     letter-spacing: 2px;
     margin-top: 25px;
+    margin-bottom: 40px;
     font-size: 16px;
+    &__link {
+      color: var(--red);
+      font-weight: bold;
+    }
   }
 `;
 
