@@ -14,21 +14,21 @@ const Style4Error04Page = styled.div`
   text-align: center;
   div {
     color: var(--red);
-    width: 320px;
-    height: 320px;
+    width: 280px;
+    height: 280px;
     border-radius: 50%;
-    border: 3px solid var(--red);
+    border: 3px solid var(--fc-primary);
     box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
   }
   span {
-    margin-top: 4%;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: var(--fc-primary);
   }
 
   img {
-    margin-bottom: 160px;
     width: 30px;
     height: 30px;
   }
