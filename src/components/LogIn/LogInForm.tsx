@@ -68,9 +68,8 @@ const LogInForm = (): JSX.Element => {
             Log In
           </button>
           <p className="change-form">
-            Don't have an account?{" "}
+            Don't have an account?
             <NavLink to={"/register"} style={{ textDecoration: "none" }}>
-              {" "}
               <span className="change-form__link">Sign Up</span>
             </NavLink>
           </p>

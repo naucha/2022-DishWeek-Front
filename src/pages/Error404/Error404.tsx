@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const Style4Error04Page = styled.div`
@@ -32,6 +33,14 @@ const Style4Error04Page = styled.div`
     width: 30px;
     height: 30px;
   }
+  span {
+    margin-top: 40px;
+    font-size: 22px;
+    text-decoration-line: underline;
+    &::after {
+      transition: transform ease-in-out;
+    }
+  }
 `;
 
 export const Error404Page = () => {
@@ -43,6 +52,9 @@ export const Error404Page = () => {
           Page <br></br>Not Found!
         </span>
       </div>
+      <NavLink to={"/landing"} style={{ textDecoration: "none" }}>
+        <span>www.dishweek.com </span>
+      </NavLink>
     </Style4Error04Page>
   );
 };
