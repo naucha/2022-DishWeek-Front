@@ -8,19 +8,18 @@ jest.mock("react-router-dom", () => ({
   useNavigate: () => mockNavigate,
 }));
 
-const mockUserSlice = createSlice({
-  name: "user",
-  initialState: { logged: "" },
-  reducers: {},
-});
-
-const mockStore = configureStore({
-  reducer: { user: mockUserSlice.reducer },
-});
-
 describe("Given a GateController function", () => {
   describe("When it's invoked", () => {
     test("Then it should navigate to logIn if the user is not logged", () => {
+      const mockUserSlice = createSlice({
+        name: "user",
+        initialState: { logged: "" },
+        reducers: {},
+      });
+
+      const mockStore = configureStore({
+        reducer: { user: mockUserSlice.reducer },
+      });
       render(
         <Provider store={mockStore}>
           <GateController>
