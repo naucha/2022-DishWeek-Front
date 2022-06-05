@@ -1,18 +1,27 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { loginUserThunk } from "../../redux/thunks/userThunks";
+import { UserLoginData } from "../../types/types";
 import StyledForm from "../styles/StyledForm";
 
 const LogInForm = (): JSX.Element => {
-  const dispatch = useAppDispatch();
-
-  const blanckFields = {
+  const blanckFields: UserLoginData = {
     username: "",
     password: "",
   };
 
-  const [formData, setFormData] = useState(blanckFields);
+  const [formData, setFormData] = useState<UserLoginData>(blanckFields);
+
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/home");
+    }
+  }, [navigate]);
 
   const changeData = (event: { target: { id: string; value: string } }) => {
     setFormData({ ...formData, [event.target.id]: event.target.value });
@@ -22,9 +31,10 @@ const LogInForm = (): JSX.Element => {
     setFormData(blanckFields);
   };
 
-  const onSubmit = (event: { preventDefault: () => void }) => {
+  const onSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
     dispatch(loginUserThunk(formData));
+    navigate("/home");
     resetForm();
   };
 

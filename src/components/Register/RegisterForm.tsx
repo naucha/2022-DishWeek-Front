@@ -2,19 +2,20 @@ import { SyntheticEvent, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { registerUserThunk } from "../../redux/thunks/userThunks";
+import { UserRegisterData } from "../../types/types";
 
 import StyledForm from "../styles/StyledForm";
 
 const RegisterForm = (): JSX.Element => {
-  const dispatch = useAppDispatch();
-
-  const blanckFields = {
+  const blanckFields: UserRegisterData = {
     name: "",
     username: "",
     password: "",
   };
 
-  const [formData, setFormData] = useState(blanckFields);
+  const dispatch = useAppDispatch();
+
+  const [formData, setFormData] = useState<UserRegisterData>(blanckFields);
 
   const changeData = (event: { target: { id: string; value: string } }) => {
     setFormData({ ...formData, [event.target.id]: event.target.value });
@@ -24,7 +25,7 @@ const RegisterForm = (): JSX.Element => {
     setFormData(blanckFields);
   };
 
-  const onSubmit = (event: SyntheticEvent) => {
+  const onSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
     dispatch(registerUserThunk(formData));
     resetForm();

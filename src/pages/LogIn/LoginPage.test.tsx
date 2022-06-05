@@ -10,7 +10,6 @@ describe("Given a Login Page", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            ∫
             <LogInPage />
           </Provider>
         </BrowserRouter>
