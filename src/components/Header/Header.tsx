@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StyledHeader = styled.div`
   width: 100%;
-
+  letter-spacing: 3px;
   padding: 14px 0;
   margin-top: 20px;
   h1 {
@@ -31,6 +31,12 @@ const StyledHeader = styled.div`
         margin: 0;
         font-size: 22px;
         margin-bottom: 4px;
+        background: none;
+        border: none;
+        font-family: "Merriweather", sans-serif;
+        font-weight: bolder;
+        padding: 0;
+        cursor: pointer;
       }
     }
 
@@ -93,7 +99,9 @@ export const Header = (): JSX.Element => {
         <h1>
           Dish<br></br>Week
         </h1>
-        <p className="header--main-logout">Logout</p>
+        <button className="header--main-logout" onClick={() => {}}>
+          Logout
+        </button>
       </div>
       <nav className="header--nav">
         <ul>
