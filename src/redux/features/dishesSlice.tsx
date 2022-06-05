@@ -10,9 +10,14 @@ const dishesSlice = createSlice({
     loadDishes: (dishes, action: PayloadAction<DishesData[]>) => [
       ...action.payload,
     ],
+    deleteDish: (dishes, action: PayloadAction<string>) =>
+      dishes.filter((dishes) => dishes.id !== action.payload),
   },
 });
 
-export const { loadDishes: loadDishesActionCreator } = dishesSlice.actions;
+export const {
+  loadDishes: loadDishesActionCreator,
+  deleteDish: deleteDishesActionCreator,
+} = dishesSlice.actions;
 
 export default dishesSlice.reducer;
