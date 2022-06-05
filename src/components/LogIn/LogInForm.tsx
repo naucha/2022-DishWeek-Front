@@ -41,7 +41,7 @@ const LogInForm = (): JSX.Element => {
   return (
     <StyledForm>
       <h2>Welcome back</h2>
-      <p className="greeting">Happy to see you again, let's cook.</p>
+      <p className="greeting">Happy to see you again</p>
       <form className="form" noValidate autoComplete="off" onSubmit={onSubmit}>
         <label htmlFor="username">Username</label>
         <input
