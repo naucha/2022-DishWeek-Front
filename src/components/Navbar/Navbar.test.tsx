@@ -4,9 +4,9 @@ import { BrowserRouter } from "react-router-dom";
 import store from "../../redux/store/store";
 import { Navbar } from "./Nabvar";
 
-describe("Given a Header component", () => {
+describe("Given a Navbar component", () => {
   describe("When it's invoked", () => {
-    test("Then it should render a heading", () => {
+    test("Then it should render a list of 3 item", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>

@@ -15,10 +15,8 @@ describe("Given a HomePape component", () => {
         </BrowserRouter>
       );
 
-      const expectedHeading = screen.getByRole("heading", { level: 1 });
       const expectedButton = screen.getByRole("button", { name: "Logout" });
 
-      expect(expectedHeading).toBeInTheDocument();
       expect(expectedButton).toBeInTheDocument();
     });
   });

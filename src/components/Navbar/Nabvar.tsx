@@ -61,7 +61,7 @@ export const Navbar = () => {
             </li>
           </ul>
         </nav>
-        {!logged ? <Filter /> : ""}
+        {logged ? <Filter /> : ""}
       </StyledNavbar>
     </>
   );

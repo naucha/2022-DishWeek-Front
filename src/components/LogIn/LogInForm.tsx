@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../../redux/store/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { loginUserThunk } from "../../redux/thunks/userThunks";
 import { UserLoginData } from "../../types/types";
 import StyledForm from "../styles/StyledForm";
@@ -16,12 +16,13 @@ const LogInForm = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
+  const userStateInfo = useAppSelector((state) => state.user.logged);
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
       navigate("/home");
     }
-  }, [navigate]);
+  }, [navigate, userStateInfo]);
 
   const changeData = (event: { target: { id: string; value: string } }) => {
     setFormData({ ...formData, [event.target.id]: event.target.value });
@@ -70,7 +71,7 @@ const LogInForm = (): JSX.Element => {
           <p className="change-form">
             Don't have an account?
             <NavLink to={"/register"} style={{ textDecoration: "none" }}>
-              <span className="change-form__link">Sign Up</span>
+              <span className="change-form__link"> Sign Up</span>
             </NavLink>
           </p>
         </div>

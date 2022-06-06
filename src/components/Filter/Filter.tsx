@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { useAppSelector } from "../../redux/store/hooks";
 
 const StyledFilter = styled.div`
   .filter {
