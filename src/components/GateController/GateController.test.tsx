@@ -28,7 +28,7 @@ describe("Given a GateController function", () => {
         </Provider>
       );
 
-      expect(mockNavigate).toHaveBeenCalledWith("/login");
+      expect(mockNavigate).toHaveBeenCalledWith("/landing");
     });
 
     test("Then it should render his children if the user is logged", () => {

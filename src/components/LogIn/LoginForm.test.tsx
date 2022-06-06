@@ -9,8 +9,9 @@ import LogInForm from "./LogInForm";
 
 const mockDispatch = jest.fn();
 
-jest.mock("../../redux/store/hooks", () => ({
-  useAppDispatch: () => mockDispatch,
+jest.mock("react-redux", () => ({
+  ...jest.requireActual("react-redux"),
+  useDispatch: () => mockDispatch,
 }));
 
 jest.mock("../../redux/thunks/userThunks", () => ({
