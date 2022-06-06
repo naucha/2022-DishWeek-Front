@@ -7,6 +7,8 @@ const StyledForm = styled.div`
   letter-spacing: 2px;
   background-color: white;
   align-items: center;
+  border: 2px solid var(--red);
+  max-width: 1000px;
 
   h2 {
     margin: 20px 0 0 0;

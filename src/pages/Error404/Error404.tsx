@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { Header } from "../../components/Header/Header";
 
 const Style4Error04Page = styled.div`
   width: 100%;
@@ -15,8 +16,8 @@ const Style4Error04Page = styled.div`
   text-align: center;
   div {
     color: var(--red);
-    width: 280px;
-    height: 280px;
+    width: 310px;
+    height: 310px;
     border-radius: 50%;
     border: 3px solid var(--fc-primary);
     box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
@@ -30,8 +31,8 @@ const Style4Error04Page = styled.div`
   }
 
   img {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
   }
   span {
     margin-top: 40px;
@@ -46,6 +47,7 @@ const Style4Error04Page = styled.div`
 export const Error404Page = () => {
   return (
     <Style4Error04Page>
+      <Header />
       <div>
         <span>
           <img src="/images/icons/bowl-food.svg" alt="Logo Dish Week"></img>
