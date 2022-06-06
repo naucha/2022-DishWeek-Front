@@ -1,7 +1,10 @@
-import { mockDish } from "../../mocks/mocks";
+import { mockDish, mockDishes } from "../../mocks/mocks";
 import { server } from "../../mocks/server";
-import { loadDishesActionCreator } from "../features/dishesSlice";
-import { getDishesThunk } from "./dishesThunks";
+import {
+  deleteDishesActionCreator,
+  loadDishesActionCreator,
+} from "../features/dishesSlice";
+import { deleteDishesThunk, getDishesThunk } from "./dishesThunks";
 
 beforeEach(() => server.listen());
 afterEach(() => server.resetHandlers());
@@ -22,17 +25,17 @@ describe("Given getDishesThunk", () => {
   });
 });
 
-// describe("Given deletDishesThunk,", () => {
-//   describe("When its invoked", () => {
-//     test("Then it should dispatch deleteDishesActionCreator", async () => {
-//       const dispatch = jest.fn();
-//       const action = deleteDishesActionCreator(mockDishes[0].id);
+describe("Given deletDishesThunk,", () => {
+  describe("When its invoked", () => {
+    test("Then it should dispatch deleteDishesActionCreator", async () => {
+      const dispatch = jest.fn();
+      const action = deleteDishesActionCreator(mockDishes[1].id);
 
-//       const thunk = deleteDishesThunk(mockDishes[0].id);
+      const thunk = deleteDishesThunk(mockDishes[1].id);
 
-//       await thunk(dispatch);
+      await thunk(dispatch);
 
-//       expect(dispatch).toHaveBeenCalledWith(action);
-//     });
-//   });
-// });
+      expect(dispatch).toHaveBeenCalledWith(action);
+    });
+  });
+});
