@@ -8,8 +8,7 @@ const StyledButtonsLanding = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 35px;
-  position: relative;
-  top: 15%;
+  margin-top: 50px;
 `;
 export const ButtonsLanding = () => {
   return (

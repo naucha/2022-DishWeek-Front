@@ -5,13 +5,14 @@ const StyledForm = styled.div`
   flex-direction: column;
   text-align: left;
   letter-spacing: 2px;
-  background-color: white;
+  /* background-color: #ffffffd0; */
   align-items: center;
 
   h2 {
     margin: 20px 0 0 0;
     font-size: 35px;
     color: var(--fc-primary);
+    border-bottom: 2px solid var(--fc-primary);
   }
 
   p {
@@ -24,6 +25,7 @@ const StyledForm = styled.div`
     display: flex;
     flex-direction: column;
     max-width: 420px;
+    min-width: 360px;
     gap: 10px;
 
     label {
@@ -37,7 +39,6 @@ const StyledForm = styled.div`
     input {
       height: 30px;
       font-size: 18px;
-
       font-family: "Helvetica Neue", sans-serif;
       letter-spacing: 3px;
       border: 1px solid var(--fc-primary);
@@ -64,13 +65,14 @@ const StyledForm = styled.div`
     align-items: center;
     justify-content: center;
     width: 320px;
-    height: 60px;
+    height: 50px;
     cursor: pointer;
+    margin-top: 15px;
     color: var(--bg-primary);
     background-color: var(--fc-primary);
     font-family: "Merriweather", sans-serif;
     letter-spacing: 3px;
-    font-size: 22px;
+    font-size: 21px;
     font-weight: bolder;
     border-radius: 50px;
     box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);

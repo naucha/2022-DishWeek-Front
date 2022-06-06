@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../../redux/store/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { loginUserThunk } from "../../redux/thunks/userThunks";
 import { UserLoginData } from "../../types/types";
 import StyledForm from "../styles/StyledForm";
 
 const LogInForm = (): JSX.Element => {
+  const dispatch = useAppDispatch();
+  const userStateInfo = useAppSelector((state) => state.user.logged);
+
   const blanckFields: UserLoginData = {
     username: "",
     password: "",
@@ -13,7 +16,6 @@ const LogInForm = (): JSX.Element => {
 
   const [formData, setFormData] = useState<UserLoginData>(blanckFields);
 
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,7 +23,7 @@ const LogInForm = (): JSX.Element => {
     if (token) {
       navigate("/home");
     }
-  }, [navigate]);
+  }, [navigate, userStateInfo]);
 
   const changeData = (event: { target: { id: string; value: string } }) => {
     setFormData({ ...formData, [event.target.id]: event.target.value });
@@ -34,7 +36,6 @@ const LogInForm = (): JSX.Element => {
   const onSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
     dispatch(loginUserThunk(formData));
-    navigate("/home");
     resetForm();
   };
 
@@ -65,12 +66,13 @@ const LogInForm = (): JSX.Element => {
             type="submit"
             disabled={formData.username === "" || formData.password === ""}
           >
+            {" "}
             Log In
           </button>
           <p className="change-form">
             Don't have an account?
             <NavLink to={"/register"} style={{ textDecoration: "none" }}>
-              <span className="change-form__link">Sign Up</span>
+              <span className="change-form__link"> Sign Up</span>
             </NavLink>
           </p>
         </div>

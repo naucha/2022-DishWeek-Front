@@ -6,7 +6,7 @@ import { HomePage } from "./HomePage";
 
 describe("Given a HomePape component", () => {
   describe("When it's invoked", () => {
-    test("Then it should render a heading, with a button init", () => {
+    test("Then it should render a heading", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -15,11 +15,11 @@ describe("Given a HomePape component", () => {
         </BrowserRouter>
       );
 
-      const expectedHeading = screen.getByRole("heading", { level: 1 });
-      const expectedButton = screen.getByRole("button", { name: "Logout" });
+      const expectedHeading = screen.getByRole("heading", {
+        name: "Dish Week",
+      });
 
       expect(expectedHeading).toBeInTheDocument();
-      expect(expectedButton).toBeInTheDocument();
     });
   });
 });

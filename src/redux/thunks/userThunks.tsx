@@ -17,7 +17,7 @@ export const registerUserThunk =
       await axios.post(route, formData);
       toast.success("Now you are registered!");
     } catch (error) {
-      toast.success("Wrong username or Password!");
+      toast.error("Wrong username or Password!");
     }
   };
 

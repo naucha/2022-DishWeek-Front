@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useAppSelector } from "../../redux/store/hooks";
+import { Navbar } from "../Navbar/Nabvar";
 
 const StyledHeader = styled.div`
   width: 100%;
@@ -13,6 +14,12 @@ const StyledHeader = styled.div`
     color: var(--fc-primary);
     font-weight: 800;
     text-align: center;
+  }
+
+  img {
+    width: 80px;
+    height: 80px;
+    color: var();
   }
 
   .header {
@@ -39,86 +46,26 @@ const StyledHeader = styled.div`
         cursor: pointer;
       }
     }
-
-    &--nav {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      font-size: 22px;
-      color: var(--fc-primary);
-      border-bottom: 2px solid var(--fc-primary);
-      border-top: 2px solid var(--fc-primary);
-      margin: 0;
-      padding: 0;
-
-      ul {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        list-style: none;
-        list-style-type: none;
-        text-decoration: none;
-        margin: 0;
-        padding: 0;
-        margin-bottom: 10px;
-        margin-top: 12px;
-        align-content: center;
-        justify-content: space-around;
-      }
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-    }
-
-    &--filter {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      font-size: 22px;
-      color: var(--fc-primary);
-      border-bottom: 2px solid var(--fc-primary);
-      text-decoration: none;
-      text-decoration-style: none;
-      text-decoration-line: none;
-      padding: 12px 0;
-      margin: 0;
-      justify-content: space-around;
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-    }
   }
 `;
 
 export const Header = (): JSX.Element => {
+  const { logged } = useAppSelector((state) => state.user);
   return (
     <StyledHeader>
       <div className="header--main">
         <h1>
           Dish<br></br>Week
         </h1>
-        <button className="header--main-logout" onClick={() => {}}>
-          Logout
-        </button>
+        {!logged ? (
+          ""
+        ) : (
+          <button className="header--main-logout" onClick={() => {}}>
+            Logout
+          </button>
+        )}
       </div>
-      <nav className="header--nav">
-        <ul>
-          <li>
-            <Link to="/home">Dishes</Link>
-          </li>
-          <li>
-            <Link to="/home">My Week</Link>
-          </li>
-          <li>
-            <Link to="/home">Create</Link>
-          </li>
-        </ul>
-      </nav>
-      <p className="header--filter">
-        <a href="/filterlist">Veggy</a>
-      </p>
+      <Navbar />
     </StyledHeader>
   );
 };
