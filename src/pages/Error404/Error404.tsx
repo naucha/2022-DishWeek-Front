@@ -19,29 +19,25 @@ const Style4Error04Page = styled.div`
     width: 310px;
     height: 310px;
     border-radius: 50%;
-    border: 3px solid var(--fc-primary);
+    border: 2.5px solid var(--fc-primary);
     box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
   }
-  span {
-    margin-top: 40px;
+  p {
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: var(--fc-primary);
+    font-size: 22px;
   }
 
   img {
     width: 40px;
     height: 40px;
   }
-  span {
+  /* p {
     margin-top: 40px;
-    font-size: 22px;
-    text-decoration-line: underline;
-    &::after {
-      transition: transform ease-in-out;
-    }
-  }
+  } */
 `;
 
 export const Error404Page = () => {
@@ -49,13 +45,13 @@ export const Error404Page = () => {
     <Style4Error04Page>
       <Header />
       <div>
-        <span>
+        <p>
           <img src="/images/icons/bowl-food.svg" alt="Logo Dish Week"></img>
           Page <br></br>Not Found!
-        </span>
+        </p>
       </div>
-      <NavLink to={"/landing"} style={{ textDecoration: "none" }}>
-        <span>www.dishweek.com </span>
+      <NavLink to={"/home"} style={{ textDecoration: "none" }}>
+        <p>www.dishweek.com </p>
       </NavLink>
     </Style4Error04Page>
   );

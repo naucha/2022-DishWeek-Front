@@ -13,7 +13,3 @@ body {
     "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   background-color: var(--bg-primary);
 }
-
-.App {
-  width: 100%;
-}

@@ -6,6 +6,9 @@ import { UserLoginData } from "../../types/types";
 import StyledForm from "../styles/StyledForm";
 
 const LogInForm = (): JSX.Element => {
+  const dispatch = useAppDispatch();
+  const userStateInfo = useAppSelector((state) => state.user.logged);
+
   const blanckFields: UserLoginData = {
     username: "",
     password: "",
@@ -13,10 +16,8 @@ const LogInForm = (): JSX.Element => {
 
   const [formData, setFormData] = useState<UserLoginData>(blanckFields);
 
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const userStateInfo = useAppSelector((state) => state.user.logged);
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -35,7 +36,6 @@ const LogInForm = (): JSX.Element => {
   const onSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
     dispatch(loginUserThunk(formData));
-    navigate("/home");
     resetForm();
   };
 

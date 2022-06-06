@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useAppSelector } from "../../redux/store/hooks";
 import { Navbar } from "../Navbar/Nabvar";
 
 const StyledHeader = styled.div`
@@ -13,6 +14,12 @@ const StyledHeader = styled.div`
     color: var(--fc-primary);
     font-weight: 800;
     text-align: center;
+  }
+
+  img {
+    width: 80px;
+    height: 80px;
+    color: var();
   }
 
   .header {
@@ -43,15 +50,20 @@ const StyledHeader = styled.div`
 `;
 
 export const Header = (): JSX.Element => {
+  const { logged } = useAppSelector((state) => state.user);
   return (
     <StyledHeader>
       <div className="header--main">
         <h1>
           Dish<br></br>Week
         </h1>
-        <button className="header--main-logout" onClick={() => {}}>
-          Logout
-        </button>
+        {!logged ? (
+          ""
+        ) : (
+          <button className="header--main-logout" onClick={() => {}}>
+            Logout
+          </button>
+        )}
       </div>
       <Navbar />
     </StyledHeader>

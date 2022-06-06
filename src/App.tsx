@@ -19,6 +19,7 @@ function App() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
+
     if (token) {
       dispatch(getDishesThunk());
       const { id, name, username }: UserData = jwtDecode(token);
@@ -28,24 +29,22 @@ function App() {
 
   return (
     <>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<Navigate to="/home" />} />
-          <Route path="/landing" element={<LandingPage />} />
-          <Route path="/login" element={<LogInPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route
-            path="/home"
-            element={
-              <GateController>
-                <HomePage />
-              </GateController>
-            }
-          />
-          <Route path="/*" element={<Error404Page />} />
-        </Routes>
-        <Toaster />
-      </div>
+      <Routes>
+        <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="/landing" element={<LandingPage />} />
+        <Route path="/login" element={<LogInPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route
+          path="/home"
+          element={
+            <GateController>
+              <HomePage />
+            </GateController>
+          }
+        />
+        <Route path="/*" element={<Error404Page />} />
+      </Routes>
+      <Toaster />
     </>
   );
 }

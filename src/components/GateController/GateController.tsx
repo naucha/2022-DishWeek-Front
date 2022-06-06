@@ -9,7 +9,7 @@ const GateController = ({ children }: { children: JSX.Element }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!logged) navigate("/login");
+    if (!logged) navigate("/landing");
   }, [logged, navigate]);
 
   if (logged) {

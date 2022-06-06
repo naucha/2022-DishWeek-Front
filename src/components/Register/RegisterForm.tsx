@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { registerUserThunk } from "../../redux/thunks/userThunks";
 import { UserRegisterData } from "../../types/types";
@@ -14,6 +14,7 @@ const RegisterForm = (): JSX.Element => {
   };
 
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState<UserRegisterData>(blanckFields);
 
@@ -28,6 +29,12 @@ const RegisterForm = (): JSX.Element => {
   const onSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
     dispatch(registerUserThunk(formData));
+
+    setTimeout(() => {
+      navigate("/login");
+    }, 1500);
+
+    clearTimeout();
     resetForm();
   };
 

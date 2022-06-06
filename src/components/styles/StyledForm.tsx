@@ -5,10 +5,8 @@ const StyledForm = styled.div`
   flex-direction: column;
   text-align: left;
   letter-spacing: 2px;
-  background-color: white;
+  background-color: #ffffffd0;
   align-items: center;
-  border: 2px solid var(--red);
-  max-width: 1000px;
 
   h2 {
     margin: 20px 0 0 0;
@@ -26,6 +24,7 @@ const StyledForm = styled.div`
     display: flex;
     flex-direction: column;
     max-width: 420px;
+    min-width: 360px;
     gap: 10px;
 
     label {
@@ -39,7 +38,6 @@ const StyledForm = styled.div`
     input {
       height: 30px;
       font-size: 18px;
-
       font-family: "Helvetica Neue", sans-serif;
       letter-spacing: 3px;
       border: 1px solid var(--fc-primary);
