@@ -27,7 +27,7 @@ export const mockDish = [
 
 export const mockDishes = [
   {
-    id: "123ea",
+    id: "1213ea",
     name: "macarrones",
     veggy: true,
     ingredients: ["cebolla", "pasta", "tomate"],

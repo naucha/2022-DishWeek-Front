@@ -61,6 +61,9 @@ export const StyledDishComponent = styled.li`
     width: 60px;
     height: 60px;
     width: max-content;
+    &::after {
+      transition: transform ease-in;
+    }
   }
 
   .dish_buttons {

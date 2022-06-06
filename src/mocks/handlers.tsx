@@ -1,5 +1,5 @@
 import { rest } from "msw";
-import { mockDish } from "./mocks";
+import { mockDish, mockDishes } from "./mocks";
 
 const mockNewUser = {
   name: "Pepito",
@@ -21,4 +21,11 @@ export const handlers = [
   rest.get(`${process.env.REACT_APP_API_URL}dishes/list`, (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(mockDish));
   }),
+
+  rest.delete(
+    `${process.env.REACT_APP_API_URL}dishes/:idDishes`,
+    (req, res, ctx) => {
+      return res(ctx.status(200), ctx.json(mockDishes[1].id));
+    }
+  ),
 ];

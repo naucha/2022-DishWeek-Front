@@ -1,3 +1,5 @@
+import { useAppDispatch } from "../../redux/store/hooks";
+import { deleteDishesThunk } from "../../redux/thunks/dishesThunks";
 import { DishesData } from "../../types/types";
 import { StyledDishComponent } from "./StyledDish";
 
@@ -6,6 +8,11 @@ export const Dish = ({
 }: {
   dishes: DishesData;
 }) => {
+  const dispatch = useAppDispatch();
+
+  const deleteDish = () => {
+    dispatch(deleteDishesThunk(id));
+  };
   return (
     <StyledDishComponent>
       <div className="info-text">
@@ -22,6 +29,7 @@ export const Dish = ({
           className="buttons button-minus"
           src="/images/icons/circle-minus-solid.svg"
           alt="Button for remove recipes"
+          onClick={deleteDish}
         />
         <img
           className="buttons button-plus"
