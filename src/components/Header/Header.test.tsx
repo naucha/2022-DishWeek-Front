@@ -1,12 +1,11 @@
 import { render, screen } from "@testing-library/react";
-import { debug } from "console";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import store from "../../redux/store/store";
 import { Header } from "./Header";
 
 describe("Given a Header component", () => {
-  describe("When it's invoked when the user is not logged", () => {
+  describe("When it's invoked when the user is logged", () => {
     test("Then it should render a heading", () => {
       const userLogin = {
         type: "user/login",
@@ -41,7 +40,7 @@ describe("Given a Header component", () => {
     });
   });
 
-  describe("When it's invoked when the user is logged", () => {
+  describe("When it's invoked when the user is not logged", () => {
     test("Then it should render a heading an a navbar", () => {
       const logout = {
         type: "user/logout",
