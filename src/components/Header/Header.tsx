@@ -1,5 +1,8 @@
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { useAppSelector } from "../../redux/store/hooks";
+import { logoutActionCreator } from "../../redux/features/userSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { Navbar } from "../Navbar/Nabvar";
 
 const StyledHeader = styled.div`
@@ -50,7 +53,19 @@ const StyledHeader = styled.div`
 `;
 
 export const Header = (): JSX.Element => {
+  const dispatch = useAppDispatch();
   const { logged } = useAppSelector((state) => state.user);
+  const navigate = useNavigate();
+
+  const logout = () => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      localStorage.clear();
+    }
+    dispatch(logoutActionCreator());
+    navigate("/login");
+    toast.success("See you soon");
+  };
   return (
     <StyledHeader>
       <div className="header--main">
@@ -60,7 +75,7 @@ export const Header = (): JSX.Element => {
         {!logged ? (
           ""
         ) : (
-          <button className="header--main-logout" onClick={() => {}}>
+          <button className="header--main-logout" onClick={logout}>
             Logout
           </button>
         )}
