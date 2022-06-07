@@ -1,5 +1,5 @@
+import { deleteDishesActionCreator } from "../../redux/features/dishesSlice";
 import { useAppDispatch } from "../../redux/store/hooks";
-import { deleteDishesThunk } from "../../redux/thunks/dishesThunks";
 import { DishesData } from "../../types/types";
 import { StyledDishComponent } from "./StyledDish";
 
@@ -11,7 +11,7 @@ export const Dish = ({
   const dispatch = useAppDispatch();
 
   const deleteDish = () => {
-    dispatch(deleteDishesThunk(id));
+    dispatch(deleteDishesActionCreator(id));
   };
   return (
     <StyledDishComponent>
