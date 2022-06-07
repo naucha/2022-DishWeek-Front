@@ -10,6 +10,7 @@ const StyledHeader = styled.div`
   letter-spacing: 3px;
   padding: 14px 0;
   margin-top: 20px;
+
   h1 {
     align-items: center;
     margin: 0;
