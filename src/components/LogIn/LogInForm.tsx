@@ -33,9 +33,9 @@ const LogInForm = (): JSX.Element => {
     setFormData(blanckFields);
   };
 
-  const onSubmit = (event: React.SyntheticEvent) => {
+  const onSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
-    dispatch(loginUserThunk(formData));
+    await dispatch(loginUserThunk(formData));
     resetForm();
   };
 

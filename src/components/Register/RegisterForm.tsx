@@ -26,16 +26,11 @@ const RegisterForm = (): JSX.Element => {
     setFormData(blanckFields);
   };
 
-  const onSubmit = (event: React.SyntheticEvent) => {
+  const onSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
-    dispatch(registerUserThunk(formData));
-
-    setTimeout(() => {
-      navigate("/login");
-    }, 1500);
-
-    clearTimeout();
+    await dispatch(registerUserThunk(formData));
     resetForm();
+    navigate("/login");
   };
 
   return (

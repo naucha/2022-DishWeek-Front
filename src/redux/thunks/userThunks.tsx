@@ -38,6 +38,6 @@ export const loginUserThunk =
       toast.success("Succesfully logged in!");
     } catch (error) {
       toast.dismiss();
-      toast.success("Wrong username or Password!");
+      toast.error("Wrong username or Password!");
     }
   };
