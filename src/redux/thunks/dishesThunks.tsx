@@ -52,8 +52,6 @@ export const createDishThunk =
         headers: { Authorization: `Bearer ${token}` },
       });
 
-      if (newDish) {
-        dispatch(createDishActionCreator(newDish));
-      }
-    } catch (error) {}
+      dispatch(createDishActionCreator(newDish));
+    } catch (error: any) {}
   };

@@ -54,7 +54,7 @@ export const Navbar = () => {
             <li>{logged ? <Link to="/home">My Week</Link> : ""}</li>
             <li>
               {logged ? (
-                <Link to="/home">Create</Link>
+                <Link to="/create">Create</Link>
               ) : (
                 <Link to="/register">Register</Link>
               )}

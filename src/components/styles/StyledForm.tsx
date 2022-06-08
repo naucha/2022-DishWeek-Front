@@ -23,8 +23,8 @@ const StyledForm = styled.div`
   .form {
     display: flex;
     flex-direction: column;
-    max-width: 420px;
-    min-width: 360px;
+    max-width: 360px;
+    min-width: 320px;
     gap: 10px;
 
     label {
@@ -92,6 +92,17 @@ const StyledForm = styled.div`
       transition: transform ease-in;
     }
   }
+
+  .add-recipe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .checkbox {
+    padding-left: 10px;
+    width: 30px;
+  }
+
   .change-form {
     letter-spacing: 2px;
     margin-top: 25px;

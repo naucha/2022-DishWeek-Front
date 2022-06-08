@@ -24,7 +24,7 @@ export interface UserLoginResponse {
 export interface DishesData {
   id: string;
   name: string;
-  veggie: boolean;
+  veggie: string;
   ingredients: string[];
   image: string;
   resume: string;

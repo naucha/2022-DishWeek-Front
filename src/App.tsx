@@ -12,7 +12,6 @@ import { Toaster } from "react-hot-toast";
 import { HomePage } from "./pages/Home/HomePage";
 import GateController from "./components/GateController/GateController";
 import { Error404Page } from "./pages/Error404/Error404";
-import CreateForm from "./components/CreateForm/CreateForm";
 import { CreatePage } from "./pages/Create/CreatePage";
 
 function App() {
