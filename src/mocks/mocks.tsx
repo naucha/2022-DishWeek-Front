@@ -13,7 +13,7 @@ export const mockDish = [
   {
     id: "123ea",
     name: "macarrones",
-    veggy: true,
+    veggie: true,
     ingredients: ["cebolla", "pasta", "tomate"],
     image: "image",
     resume: "Poner a hervir...",
@@ -29,7 +29,7 @@ export const mockDishes = [
   {
     id: "1213ea",
     name: "macarrones",
-    veggy: true,
+    veggie: true,
     ingredients: ["cebolla", "pasta", "tomate"],
     image: "image",
     resume: "Poner a hervir...",
@@ -42,7 +42,7 @@ export const mockDishes = [
   {
     id: "1dsaa",
     name: "sopa",
-    veggy: true,
+    veggie: true,
     ingredients: ["tomate"],
     image: "image",
     resume: "Hervir...",

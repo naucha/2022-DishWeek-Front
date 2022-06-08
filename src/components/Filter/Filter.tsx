@@ -25,7 +25,7 @@ export const Filter = () => {
   return (
     <StyledFilter>
       <p className="filter">
-        <a href="/home">Veggy</a>
+        <a href="/home">Veggie</a>
       </p>
     </StyledFilter>
   );

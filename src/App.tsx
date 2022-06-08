@@ -12,6 +12,7 @@ import { Toaster } from "react-hot-toast";
 import { HomePage } from "./pages/Home/HomePage";
 import GateController from "./components/GateController/GateController";
 import { Error404Page } from "./pages/Error404/Error404";
+import CreateForm from "./components/CreateForm/CreateForm";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -28,6 +29,7 @@ function App() {
 
   return (
     <>
+      <CreateForm />
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/landing" element={<LandingPage />} />

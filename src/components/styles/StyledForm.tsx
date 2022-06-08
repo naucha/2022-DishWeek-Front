@@ -5,7 +5,6 @@ const StyledForm = styled.div`
   flex-direction: column;
   text-align: left;
   letter-spacing: 2px;
-  /* background-color: #ffffffd0; */
   align-items: center;
 
   h2 {
@@ -48,6 +47,19 @@ const StyledForm = styled.div`
       background-color: #ffffff;
       box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
     }
+  }
+
+  .textarea {
+    min-height: 300px;
+    font-size: 18px;
+    font-family: "Helvetica Neue", sans-serif;
+    letter-spacing: 3px;
+    border: 1px solid var(--fc-primary);
+    border-radius: 10px;
+    margin: 0px 0 16px 0;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
   }
 
   div {

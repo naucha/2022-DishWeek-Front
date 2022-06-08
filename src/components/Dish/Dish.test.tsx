@@ -10,7 +10,7 @@ describe("Given a Dish component", () => {
       const data = {
         id: "123",
         name: "pep",
-        veggy: true,
+        veggie: true,
         ingredients: ["pep"],
         image: "pep",
         resume: "pep",

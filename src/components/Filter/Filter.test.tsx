@@ -6,7 +6,7 @@ import { Filter } from "./Filter";
 
 describe("Given a Header component", () => {
   describe("When it's invoked", () => {
-    test("Then it should render a link with teh text 'Veggy", () => {
+    test("Then it should render a link with teh text 'Veggie", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -15,7 +15,7 @@ describe("Given a Header component", () => {
         </BrowserRouter>
       );
 
-      const link = screen.getByRole("link", { name: "Veggy" });
+      const link = screen.getByRole("link", { name: "Veggie" });
 
       expect(link).toBeInTheDocument();
     });
