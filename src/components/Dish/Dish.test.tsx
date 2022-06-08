@@ -15,9 +15,9 @@ describe("Given a Dish component", () => {
         image: "pep",
         resume: "pep",
         recipe: "pep",
-        cookingTime: "12h",
-        daysOfWeek: ["lunes"],
-        createdBy: "pep",
+        cookingtime: "12h",
+        daysofweek: ["lunes"],
+        createdby: "pep",
       };
 
       render(

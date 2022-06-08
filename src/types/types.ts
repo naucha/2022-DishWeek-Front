@@ -29,7 +29,7 @@ export interface DishesData {
   image: string;
   resume: string;
   recipe: string;
-  cookingTime: string;
-  daysOfWeek: string[];
-  createdBy: string;
+  cookingtime: string;
+  daysofweek: string[];
+  createdby: string;
 }
