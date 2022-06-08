@@ -17,15 +17,14 @@ function App() {
   const dispatch = useAppDispatch();
   const userStateInfo = useAppSelector((state) => state.user.logged);
 
+  const token = localStorage.getItem("token");
   useEffect(() => {
-    const token = localStorage.getItem("token");
-
     if (token) {
       dispatch(getDishesThunk());
       const { id, name, username }: UserData = jwtDecode(token);
       dispatch(logInActionCreator({ id, name, username }));
     }
-  }, [dispatch, userStateInfo]);
+  }, [dispatch, userStateInfo, token]);
 
   return (
     <>
