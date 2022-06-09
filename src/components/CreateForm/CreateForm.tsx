@@ -49,10 +49,10 @@ const CreateForm = (): JSX.Element => {
     newDishData.append("recipe", formData.recipe);
     newDishData.append("cookingtime", formData.cookingtime);
     newDishData.append("veggie", formData.veggie);
-    newDishData.append("ingredient", formData.ingredients[0]);
-
+    // newDishData.append("ingredient", inputIngredients);
     await dispatch(createDishThunk(newDishData));
     toast.success("Saving your recipe");
+
     resetForm();
     navigate("/home");
   };
@@ -73,6 +73,7 @@ const CreateForm = (): JSX.Element => {
       <form className="form" noValidate autoComplete="off" onSubmit={onSubmit}>
         <label htmlFor="name">Name</label>
         <input
+          type="text"
           id="name"
           value={formData.name}
           onChange={changeData}
@@ -88,7 +89,9 @@ const CreateForm = (): JSX.Element => {
                   key={`-ing${index} :${ingredient}`}
                 >
                   <input
-                    name="ingredient"
+                    name="ingredients"
+                    type="text"
+                    id="ingredients"
                     placeholder="Ingredient"
                     value={formData.ingredients}
                     onChange={changeData}
@@ -101,6 +104,8 @@ const CreateForm = (): JSX.Element => {
         </div>
         <label htmlFor="cookingtime">Cooking time</label>
         <input
+          aria-autocomplete="none"
+          type="text"
           id="cookingtime"
           value={formData.cookingtime}
           onChange={changeData}
@@ -109,6 +114,8 @@ const CreateForm = (): JSX.Element => {
 
         <label htmlFor="resume">Resume</label>
         <input
+          aria-autocomplete="none"
+          type="text"
           id="resume"
           value={formData.resume}
           onChange={changeData}
@@ -117,6 +124,7 @@ const CreateForm = (): JSX.Element => {
 
         <label htmlFor="recipe">Method</label>
         <textarea
+          aria-autocomplete="none"
           id="recipe"
           name="recipe"
           value={formData.recipe}
@@ -155,7 +163,6 @@ const CreateForm = (): JSX.Element => {
             formData.cookingtime === ""
           }
         >
-          {" "}
           Add Recipe
         </button>
       </form>

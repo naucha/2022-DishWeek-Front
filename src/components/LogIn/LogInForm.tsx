@@ -66,7 +66,6 @@ const LogInForm = (): JSX.Element => {
             type="submit"
             disabled={formData.username === "" || formData.password === ""}
           >
-            {" "}
             Log In
           </button>
           <p className="change-form">
