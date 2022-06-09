@@ -1,14 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
+import { useAppDispatch } from "../../redux/store/hooks";
 import { createDishThunk } from "../../redux/thunks/dishesThunks";
 import { DishesData } from "../../types/types";
 import StyledForm from "../styles/StyledForm";
 
 const CreateForm = (): JSX.Element => {
-  const dispatch = useAppDispatch();
-
-  const blanckFields: DishesData = {
+  const initialDishState: DishesData = {
     id: "",
     name: "",
     image: "",
@@ -21,40 +20,39 @@ const CreateForm = (): JSX.Element => {
     daysofweek: [],
   };
 
-  const [formData, setFormData] = useState<DishesData>(blanckFields);
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const changeData = (event: { target: { id: string; value: string } }) => {
-    setFormData({ ...formData, [event.target.id]: event.target.value });
-  };
+  const [formData, setFormData] = useState(initialDishState);
 
-  const changeCheckBox = (event: {
-    target: { id: string; checked: boolean };
-  }) => {
+  const changeData = (event: { target: { id: string; value: string } }) => {
     setFormData({
       ...formData,
-      [event.target.id]: event.target.checked.toString(),
+      [(event.target as HTMLInputElement).id]:
+        (event.target as HTMLInputElement).type === "checkbox"
+          ? (event.target as HTMLInputElement).checked.toString()
+          : (event.target as HTMLInputElement).value,
     });
   };
 
   const resetForm = () => {
-    setFormData(blanckFields);
+    setFormData(initialDishState);
   };
 
   const onSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
     const newDishData = new FormData();
-
     newDishData.append("id", formData.id);
     newDishData.append("name", formData.name);
     newDishData.append("resume", formData.resume);
     newDishData.append("recipe", formData.recipe);
     newDishData.append("cookingtime", formData.cookingtime);
-    newDishData.append("cookingtime", formData.veggie);
+    newDishData.append("veggie", formData.veggie);
     // newDishData.append("ingredient", formData.ingredients);
 
     await dispatch(createDishThunk(newDishData));
+    toast.success("Saving your recipe");
     resetForm();
     navigate("/home");
   };
@@ -96,31 +94,33 @@ const CreateForm = (): JSX.Element => {
           placeholder="Little summary"
         ></input>
 
-        <label htmlFor="textarea">Method</label>
+        <label htmlFor="recipe">Method</label>
         <textarea
-          name="textarea"
+          id="recipe"
+          name="recipe"
           value={formData.recipe}
           onChange={changeData}
-          autoComplete="none"
+          autoComplete="recipe"
           className="textarea"
           placeholder="Step by step"
         ></textarea>
 
-        <label htmlFor="dish">Image</label>
+        <label htmlFor="newImage">Image</label>
         <input
           type="file"
-          id="dish"
-          name="dish"
+          id="newImage"
+          name="newImage"
           accept="image/png ,image/jpeg"
         ></input>
 
         <label htmlFor="veggie" className="veggie">
           Veggie recipe?
           <input
+            id="veggie"
             className="checkbox"
             type="checkbox"
             value={formData.veggie}
-            onChange={changeCheckBox}
+            onChange={changeData}
           ></input>
         </label>
 

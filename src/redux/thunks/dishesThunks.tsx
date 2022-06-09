@@ -1,4 +1,5 @@
 import axios from "axios";
+import toast from "react-hot-toast";
 import {
   createDishActionCreator,
   deleteDishActionCreator,
@@ -36,6 +37,7 @@ export const deleteDishThunk =
         dispatch(deleteDishActionCreator(id));
       }
     } catch (error: any) {
+      toast.error("Failed to delete, please try again");
       return error.message;
     }
   };
@@ -48,10 +50,16 @@ export const createDishThunk =
     try {
       const {
         data: { newDish },
-      } = await axios.put(url, dishData, {
-        headers: { Authorization: `Bearer ${token}` },
+      } = await axios.post(url, dishData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
       });
 
       dispatch(createDishActionCreator(newDish));
-    } catch (error: any) {}
+      toast.success("New recipe added");
+    } catch (error: any) {
+      toast.error("Failed to add, please try again");
+    }
   };
