@@ -1,17 +1,17 @@
 import { useAppDispatch } from "../../redux/store/hooks";
-import { deleteDishesThunk } from "../../redux/thunks/dishesThunks";
+import { deleteDishThunk } from "../../redux/thunks/dishesThunks";
 import { DishesData } from "../../types/types";
 import { StyledDishComponent } from "./StyledDish";
 
 export const Dish = ({
-  dishes: { id, name, image, resume, cookingtime, createdby },
+  dishes: { id, name, image, resume, cookingtime, createdby, veggie },
 }: {
   dishes: DishesData;
 }) => {
   const dispatch = useAppDispatch();
 
   const deleteDish = () => {
-    dispatch(deleteDishesThunk(id));
+    dispatch(deleteDishThunk(id));
   };
 
   return (
@@ -24,7 +24,9 @@ export const Dish = ({
         <img className="image-recipe" alt={name} src={image} />
       </div>
       <p>{resume}</p>
-      <p>Created by: {createdby}</p>
+      <p>Created by: {createdby.username}</p>
+      {veggie ? <p>Veggie</p> : ""}
+
       <div className="dish_buttons">
         <img
           className="buttons button-minus"

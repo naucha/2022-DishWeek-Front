@@ -12,6 +12,7 @@ import { Toaster } from "react-hot-toast";
 import { HomePage } from "./pages/Home/HomePage";
 import GateController from "./components/GateController/GateController";
 import { Error404Page } from "./pages/Error404/Error404";
+import { CreatePage } from "./pages/Create/CreatePage";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -41,6 +42,7 @@ function App() {
             </GateController>
           }
         />
+        <Route path="/create" element={<CreatePage />} />
         <Route path="/*" element={<Error404Page />} />
       </Routes>
       <Toaster />

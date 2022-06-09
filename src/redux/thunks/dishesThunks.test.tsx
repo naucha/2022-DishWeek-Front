@@ -1,10 +1,10 @@
 import { mockDish, mockDishes } from "../../mocks/mocks";
 import { server } from "../../mocks/server";
 import {
-  deleteDishesActionCreator,
+  deleteDishActionCreator,
   loadDishesActionCreator,
 } from "../features/dishesSlice";
-import { deleteDishesThunk, getDishesThunk } from "./dishesThunks";
+import { deleteDishThunk, getDishesThunk } from "./dishesThunks";
 
 beforeEach(() => server.listen());
 afterEach(() => server.resetHandlers());
@@ -29,9 +29,9 @@ describe("Given deletDishesThunk,", () => {
   describe("When its invoked", () => {
     test("Then it should dispatch deleteDishesActionCreator", async () => {
       const dispatch = jest.fn();
-      const action = deleteDishesActionCreator(mockDishes[1].id);
+      const action = deleteDishActionCreator(mockDishes[1].id);
 
-      const thunk = deleteDishesThunk(mockDishes[1].id);
+      const thunk = deleteDishThunk(mockDishes[1].id);
 
       await thunk(dispatch);
 

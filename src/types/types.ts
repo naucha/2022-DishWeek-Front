@@ -24,12 +24,12 @@ export interface UserLoginResponse {
 export interface DishesData {
   id: string;
   name: string;
-  veggy: boolean;
+  veggie: string;
   ingredients: string[];
   image: string;
   resume: string;
   recipe: string;
   cookingtime: string;
   daysofweek: string[];
-  createdby: string;
+  createdby: { name: string; username: string };
 }

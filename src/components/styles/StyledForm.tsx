@@ -5,7 +5,6 @@ const StyledForm = styled.div`
   flex-direction: column;
   text-align: left;
   letter-spacing: 2px;
-  /* background-color: #ffffffd0; */
   align-items: center;
 
   h2 {
@@ -24,8 +23,8 @@ const StyledForm = styled.div`
   .form {
     display: flex;
     flex-direction: column;
-    max-width: 420px;
-    min-width: 360px;
+    max-width: 360px;
+    min-width: 320px;
     gap: 10px;
 
     label {
@@ -48,6 +47,33 @@ const StyledForm = styled.div`
       background-color: #ffffff;
       box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
     }
+
+    .container {
+      display: flex;
+
+      .ingredientLi {
+        padding: 0;
+        margin: 0;
+        align-content: center;
+        list-style: none;
+        input {
+          width: 360px;
+        }
+      }
+    }
+  }
+
+  .textarea {
+    min-height: 300px;
+    font-size: 18px;
+    font-family: "Helvetica Neue", sans-serif;
+    letter-spacing: 3px;
+    border: 1px solid var(--fc-primary);
+    border-radius: 10px;
+    margin: 0px 0 16px 0;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
   }
 
   div {
@@ -80,6 +106,18 @@ const StyledForm = styled.div`
       transition: transform ease-in;
     }
   }
+
+  .add-recipe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+  }
+  .checkbox {
+    padding-left: 10px;
+    width: 30px;
+  }
+
   .change-form {
     letter-spacing: 2px;
     margin-top: 25px;

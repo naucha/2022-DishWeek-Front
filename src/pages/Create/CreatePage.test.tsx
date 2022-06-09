@@ -2,22 +2,24 @@ import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import store from "../../redux/store/store";
-import { Filter } from "./Filter";
+import { CreatePage } from "./CreatePage";
 
-describe("Given a Header component", () => {
+describe("Given a CreatePage component", () => {
   describe("When it's invoked", () => {
-    test("Then it should render a link with teh text 'Veggie", () => {
+    test("Then it should render a heading", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <Filter />
+            <CreatePage />
           </Provider>
         </BrowserRouter>
       );
 
-      const link = screen.getByRole("link", { name: "Veggie" });
+      const expectedHeading = screen.getByRole("heading", {
+        name: "Dish Week",
+      });
 
-      expect(link).toBeInTheDocument();
+      expect(expectedHeading).toBeInTheDocument();
     });
   });
 });

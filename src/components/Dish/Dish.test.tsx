@@ -10,14 +10,14 @@ describe("Given a Dish component", () => {
       const data = {
         id: "123",
         name: "pep",
-        veggy: true,
+        veggie: "false",
         ingredients: ["pep"],
         image: "pep",
         resume: "pep",
         recipe: "pep",
         cookingtime: "12h",
         daysofweek: ["lunes"],
-        createdby: "pep",
+        createdby: { name: "Pepito", username: "Grillo" },
       };
 
       render(
