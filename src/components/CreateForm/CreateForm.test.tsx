@@ -76,33 +76,9 @@ describe("Given a Create form component", () => {
           </BrowserRouter>
         );
 
-        const button = screen.getByRole("button", { name: "Log In" });
-
-        expect(button).toBeDisabled();
-      });
-    });
-
-    describe("When the button is clicked", () => {
-      test("Then it dispatch", () => {
-        render(
-          <BrowserRouter>
-            <Provider store={store}>
-              <CreateForm />
-            </Provider>
-          </BrowserRouter>
-        );
-
-        const expectLabelName = screen.getByLabelText("Name");
-        const expectLabelResume = screen.getByLabelText("Resume");
-
-        userEvent.type(expectLabelName, "Salmon");
-        userEvent.type(expectLabelResume, "Deliciosa receta de salmon");
-
         const button = screen.getByRole("button", { name: "Add Recipe" });
 
-        userEvent.click(button);
-
-        expect(mockDispatch).toHaveBeenCalled();
+        expect(button).toBeDisabled();
       });
     });
   });
