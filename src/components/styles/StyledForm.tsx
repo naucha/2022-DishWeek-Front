@@ -48,20 +48,17 @@ const StyledForm = styled.div`
       box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
     }
 
-     .container {
-       display: flex;
-      /* ul {
-        display: flex;
-        flex-direction: column;
-        width: inherit;
-      } */
-    .ingredientLi {
-      padding: 0;
-      margin: 0;
-      align-content: center;
-      list-style: none;
-      input {
-        width: 360px;
+    .container {
+      display: flex;
+
+      .ingredientLi {
+        padding: 0;
+        margin: 0;
+        align-content: center;
+        list-style: none;
+        input {
+          width: 360px;
+        }
       }
     }
   }
