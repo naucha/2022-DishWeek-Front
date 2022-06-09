@@ -31,5 +31,5 @@ export interface DishesData {
   recipe: string;
   cookingtime: string;
   daysofweek: string[];
-  createdby: string;
+  createdby: { name: string; username: string };
 }

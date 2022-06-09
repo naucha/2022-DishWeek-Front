@@ -21,7 +21,7 @@ export const mockDish = [
       "El secreto de estos macarrones es el sofrito. No tengas prisa en realizarlo y te quedará de fábula. Pocha la cebolla lentamente hasta que quede bien caramelizada. Entonces, agrega los pimientos, el ajo, el tomate… y, por último, las setas, previamente",
     cookingtime: "2h",
     daysofweek: [],
-    createdby: "Pepito",
+    createdby: { name: "Pepito", username: "Grillo" },
   },
 ];
 
@@ -37,7 +37,7 @@ export const mockDishes = [
       "El secreto de estos macarrones es el sofrito. No tengas prisa en realizarlo y te quedará de fábula. Pocha la cebolla lentamente hasta que quede bien caramelizada. Entonces, agrega los pimientos, el ajo, el tomate… y, por último, las setas, previamente",
     cookingtime: "2h",
     daysofweek: [],
-    createdby: "Pepito",
+    createdby: { name: "Pepito", username: "Grillso" },
   },
   {
     id: "1dsaa",
@@ -50,6 +50,6 @@ export const mockDishes = [
       "El secreto de estos macarrones es el sofrito. No tengas prisa en realizarlo y te quedará de fábula. Pocha la cebolla lentamente hasta que quede bien caramelizada. Entonces, agrega los pimientos, el ajo, el tomate… y, por último, las setas, previamente",
     cookingtime: "1h",
     daysofweek: [],
-    createdby: "Juanma",
+    createdby: { name: "Pepito", username: "Grilla" },
   },
 ];

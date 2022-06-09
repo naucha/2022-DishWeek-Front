@@ -16,7 +16,7 @@ const CreateForm = (): JSX.Element => {
     veggie: "false",
     cookingtime: "",
     ingredients: [],
-    createdby: "",
+    createdby: { name: "", username: "" },
     daysofweek: [],
   };
 
@@ -49,12 +49,21 @@ const CreateForm = (): JSX.Element => {
     newDishData.append("recipe", formData.recipe);
     newDishData.append("cookingtime", formData.cookingtime);
     newDishData.append("veggie", formData.veggie);
-    // newDishData.append("ingredient", formData.ingredients);
+    newDishData.append("ingredient", formData.ingredients[0]);
 
     await dispatch(createDishThunk(newDishData));
     toast.success("Saving your recipe");
     resetForm();
     navigate("/home");
+  };
+
+  const [inputIngredients, setInputIngredients] = useState([
+    { ingredient: "" },
+  ]);
+
+  const addIngredients = () => {
+    let newIngredient = { ingredient: "" };
+    setInputIngredients([...inputIngredients, newIngredient]);
   };
 
   return (
@@ -69,15 +78,27 @@ const CreateForm = (): JSX.Element => {
           onChange={changeData}
           placeholder="Enter a name of recipe"
         ></input>
-
         <label htmlFor="ingredients">Ingredients</label>
-        <input
-          id="ingredients"
-          value={formData.ingredients}
-          onChange={changeData}
-          placeholder="Ingredient"
-        ></input>
-
+        <div className="container">
+          <ul>
+            {inputIngredients.map((ingredient, index) => {
+              return (
+                <li
+                  className="ingredientLi"
+                  key={`-ing${index} :${ingredient}`}
+                >
+                  <input
+                    name="ingredient"
+                    placeholder="Ingredient"
+                    value={formData.ingredients}
+                    onChange={changeData}
+                  ></input>
+                </li>
+              );
+            })}
+          </ul>
+          <p onClick={addIngredients}>Add new ingredient</p>
+        </div>
         <label htmlFor="cookingtime">Cooking time</label>
         <input
           id="cookingtime"
@@ -133,7 +154,6 @@ const CreateForm = (): JSX.Element => {
             formData.image === "" ||
             formData.cookingtime === ""
           }
-          onChange={onSubmit}
         >
           {" "}
           Add Recipe

@@ -24,7 +24,9 @@ export const Dish = ({
         <img className="image-recipe" alt={name} src={image} />
       </div>
       <p>{resume}</p>
-      <p>Created by: {createdby}</p>
+      <p>Created by: {createdby.username}</p>
+      {veggie ? <p>Veggie</p> : ""}
+
       <div className="dish_buttons">
         <img
           className="buttons button-minus"

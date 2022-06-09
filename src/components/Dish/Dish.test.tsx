@@ -17,7 +17,7 @@ describe("Given a Dish component", () => {
         recipe: "pep",
         cookingtime: "12h",
         daysofweek: ["lunes"],
-        createdby: "pep",
+        createdby: { name: "Pepito", username: "Grillo" },
       };
 
       render(
