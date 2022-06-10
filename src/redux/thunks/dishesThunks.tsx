@@ -44,7 +44,7 @@ export const deleteDishThunk =
 
 export const createDishThunk =
   (dishData: any) => async (dispatch: AppDispatch) => {
-    const url: string = `${process.env.REACT_APP_API_URL}dishes/`;
+    const url: string = `${process.env.REACT_APP_API_URL}dishes/create`;
     const token = localStorage.getItem("token");
 
     try {
@@ -63,4 +63,5 @@ export const createDishThunk =
     } catch (error: any) {
       toast.error("Failed to add, please try again");
     }
+    toast.success("Removed");
   };

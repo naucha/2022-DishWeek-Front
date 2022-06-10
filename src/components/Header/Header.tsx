@@ -64,6 +64,7 @@ export const Header = (): JSX.Element => {
       localStorage.clear();
     }
     dispatch(logoutActionCreator());
+
     navigate("/login");
     toast.success("See you soon");
   };

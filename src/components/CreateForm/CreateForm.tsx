@@ -34,14 +34,12 @@ const CreateForm = (): JSX.Element => {
           : (event.target as HTMLInputElement).value,
     });
   };
-
   const resetForm = () => {
     setFormData(initialDishState);
   };
 
   const onSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-
     const newDishData = new FormData();
     newDishData.append("id", formData.id);
     newDishData.append("name", formData.name);
@@ -52,7 +50,6 @@ const CreateForm = (): JSX.Element => {
     // newDishData.append("ingredient", inputIngredients);
     await dispatch(createDishThunk(newDishData));
     toast.success("Saving your recipe");
-
     resetForm();
     navigate("/home");
   };
@@ -156,12 +153,12 @@ const CreateForm = (): JSX.Element => {
         <button
           className="button add-recipe"
           type="submit"
-          disabled={
-            formData.name === "" ||
-            formData.recipe === "" ||
-            formData.image === "" ||
-            formData.cookingtime === ""
-          }
+          // disabled={
+          //   formData.name === "" ||
+          //   formData.recipe === "" ||
+          //   formData.image === "" ||
+          //   formData.cookingtime === ""
+          // }
         >
           Add Recipe
         </button>
