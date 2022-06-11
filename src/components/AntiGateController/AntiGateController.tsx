@@ -1,21 +1,17 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { useAppSelector } from "../../redux/store/hooks";
 
-const GateController = ({ children }: { children: JSX.Element }) => {
+export const AntiGateController = ({ children }: { children: JSX.Element }) => {
   const { logged } = useAppSelector((state) => state.user);
-  const token = localStorage.getItem("token");
   const navigate = useNavigate();
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
-    if (!logged && !token) navigate("/landing");
+    if (logged || token) navigate("/");
   }, [logged, navigate, token]);
-
-  if (logged) {
+  if (!logged || !token) {
     return children;
   }
   return null;
 };
-
-export default GateController;

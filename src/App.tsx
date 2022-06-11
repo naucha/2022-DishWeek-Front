@@ -13,6 +13,7 @@ import { HomePage } from "./pages/Home/HomePage";
 import GateController from "./components/GateController/GateController";
 import { Error404Page } from "./pages/Error404/Error404";
 import { CreatePage } from "./pages/Create/CreatePage";
+import { AntiGateController } from "./components/AntiGateController/AntiGateController";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -30,10 +31,38 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Navigate to="/home" />} />
-        <Route path="/landing" element={<LandingPage />} />
-        <Route path="/login" element={<LogInPage />} />
-        <Route path="/register" element={<RegisterPage />} />
+        <Route
+          path="/"
+          element={
+            <GateController>
+              <Navigate to="/home" />
+            </GateController>
+          }
+        />
+        <Route
+          path="/landing"
+          element={
+            <AntiGateController>
+              <LandingPage />
+            </AntiGateController>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <AntiGateController>
+              <LogInPage />
+            </AntiGateController>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <AntiGateController>
+              <RegisterPage />
+            </AntiGateController>
+          }
+        />
         <Route
           path="/home"
           element={
@@ -42,7 +71,14 @@ function App() {
             </GateController>
           }
         />
-        <Route path="/create" element={<CreatePage />} />
+        <Route
+          path="/create"
+          element={
+            <GateController>
+              <CreatePage />
+            </GateController>
+          }
+        />
         <Route path="/*" element={<Error404Page />} />
       </Routes>
       <Toaster />

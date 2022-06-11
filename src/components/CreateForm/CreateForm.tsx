@@ -1,23 +1,20 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { createDishThunk } from "../../redux/thunks/dishesThunks";
-import { DishesData } from "../../types/types";
+import { IDishesUserData } from "../../types/types";
 import StyledForm from "../styles/StyledForm";
 
 const CreateForm = (): JSX.Element => {
-  const initialDishState: DishesData = {
-    id: "",
+  const initialDishState: IDishesUserData = {
     name: "",
     image: "",
     resume: "",
     recipe: "",
     veggie: "false",
     cookingtime: "",
-    ingredients: [],
-    createdby: { name: "", username: "" },
-    daysofweek: [],
+    ingredients: "",
   };
 
   const dispatch = useAppDispatch();
@@ -35,6 +32,13 @@ const CreateForm = (): JSX.Element => {
     });
   };
 
+  const handleImageData = (event: ChangeEvent<HTMLInputElement>): void => {
+    setFormData({
+      ...formData,
+      [event.target.id]: event.target.files?.[0] || "",
+    });
+  };
+
   const resetForm = () => {
     setFormData(initialDishState);
   };
@@ -43,27 +47,20 @@ const CreateForm = (): JSX.Element => {
     event.preventDefault();
 
     const newDishData = new FormData();
-    newDishData.append("id", formData.id);
+
     newDishData.append("name", formData.name);
     newDishData.append("resume", formData.resume);
     newDishData.append("recipe", formData.recipe);
     newDishData.append("cookingtime", formData.cookingtime);
     newDishData.append("veggie", formData.veggie);
-    // newDishData.append("ingredient", inputIngredients);
-    await dispatch(createDishThunk(newDishData));
-    toast.success("Saving your recipe");
+    newDishData.append("ingredient", formData.ingredients);
+    newDishData.append("image", formData.image);
 
+    await dispatch(createDishThunk(newDishData));
+
+    toast.success("Saving your recipe");
     resetForm();
     navigate("/home");
-  };
-
-  const [inputIngredients, setInputIngredients] = useState([
-    { ingredient: "" },
-  ]);
-
-  const addIngredients = () => {
-    let newIngredient = { ingredient: "" };
-    setInputIngredients([...inputIngredients, newIngredient]);
   };
 
   return (
@@ -80,28 +77,16 @@ const CreateForm = (): JSX.Element => {
           placeholder="Enter a name of recipe"
         ></input>
         <label htmlFor="ingredients">Ingredients</label>
-        <div className="container">
-          <ul>
-            {inputIngredients.map((ingredient, index) => {
-              return (
-                <li
-                  className="ingredientLi"
-                  key={`-ing${index} :${ingredient}`}
-                >
-                  <input
-                    name="ingredients"
-                    type="text"
-                    id="ingredients"
-                    placeholder="Ingredient"
-                    value={formData.ingredients}
-                    onChange={changeData}
-                  ></input>
-                </li>
-              );
-            })}
-          </ul>
-          <p onClick={addIngredients}>Add new ingredient</p>
-        </div>
+
+        <input
+          name="ingredients"
+          type="text"
+          id="ingredients"
+          placeholder="Ingredient"
+          value={formData.ingredients}
+          onChange={changeData}
+        ></input>
+
         <label htmlFor="cookingtime">Cooking time</label>
         <input
           aria-autocomplete="none"
@@ -134,12 +119,13 @@ const CreateForm = (): JSX.Element => {
           placeholder="Step by step"
         ></textarea>
 
-        <label htmlFor="newImage">Image</label>
+        <label htmlFor="image">Image</label>
         <input
           type="file"
-          id="newImage"
-          name="newImage"
-          accept="image/png ,image/jpeg"
+          id="image"
+          name="image"
+          autoComplete="off"
+          onChange={handleImageData}
         ></input>
 
         <label htmlFor="veggie" className="veggie">
@@ -153,16 +139,7 @@ const CreateForm = (): JSX.Element => {
           ></input>
         </label>
 
-        <button
-          className="button add-recipe"
-          type="submit"
-          disabled={
-            formData.name === "" ||
-            formData.recipe === "" ||
-            formData.image === "" ||
-            formData.cookingtime === ""
-          }
-        >
+        <button className="button add-recipe" type="submit">
           Add Recipe
         </button>
       </form>
