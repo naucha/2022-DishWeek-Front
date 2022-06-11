@@ -1,10 +1,16 @@
+import axios from "axios";
 import { mockDish, mockDishes } from "../../mocks/mocks";
 import { server } from "../../mocks/server";
 import {
+  createDishActionCreator,
   deleteDishActionCreator,
   loadDishesActionCreator,
 } from "../features/dishesSlice";
-import { deleteDishThunk, getDishesThunk } from "./dishesThunks";
+import {
+  createDishThunk,
+  deleteDishThunk,
+  getDishesThunk,
+} from "./dishesThunks";
 
 beforeEach(() => server.listen());
 afterEach(() => server.resetHandlers());
@@ -36,6 +42,27 @@ describe("Given deletDishesThunk,", () => {
       await thunk(dispatch);
 
       expect(dispatch).toHaveBeenCalledWith(action);
+    });
+  });
+});
+
+describe("Given createDishesThunk", () => {
+  describe("When its invoked", () => {
+    test("Then it should dispatch createaDishesActionCreator", async () => {
+      const dispatch = jest.fn();
+      const newDish = mockDish[0];
+
+      const createDish = { ...newDish, id: "1212" };
+
+      const response = { status: 201, data: createDish };
+
+      axios.post = jest.fn().mockResolvedValue(response);
+
+      const expectedAction = createDishActionCreator(createDish);
+      const thunk = await createDishThunk(newDish);
+      await thunk(dispatch);
+
+      expect(dispatch).toHaveBeenCalledWith(expectedAction);
     });
   });
 });
