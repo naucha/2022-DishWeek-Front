@@ -17,7 +17,7 @@ jest.mock("../../redux/thunks/dishesThunks", () => ({
 
 describe("Given a Create form component", () => {
   describe("When it's invoked", () => {
-    test("Then it should render a heading, 7 labels", () => {
+    test("Then it should render a heading, 7 labels and button", () => {
       const expectedText = "Add new recipe";
 
       render(
@@ -49,10 +49,9 @@ describe("Given a Create form component", () => {
       expect(button).toBeInTheDocument();
     });
   });
-  describe("When the user types in the inputs fields", () => {
-    test("Then it should render the name given", () => {
-      const typedName = "Salmon";
 
+  describe("When the button is clicked", () => {
+    test("Then it dispatch createDishThunk", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -61,25 +60,36 @@ describe("Given a Create form component", () => {
         </BrowserRouter>
       );
 
-      const inputField = screen.getByLabelText("Name");
-      userEvent.type(inputField, typedName);
+      const expectedFormData = {
+        name: "Salmon",
+        resume: "Salmon Salmon",
+        recipe: "Salmon SalmonSalmonSalmon",
+        cookingtime: "30min",
+        veggie: "true",
+        ingredients: "Salmon",
+        image: "salmon.jpeg",
+      };
 
-      expect(inputField).toHaveValue(typedName);
-    });
-    describe("When the user doesn't write in all inputs", () => {
-      test("Then the button are disabled", () => {
-        render(
-          <BrowserRouter>
-            <Provider store={store}>
-              <CreateForm />
-            </Provider>
-          </BrowserRouter>
-        );
+      const expectLabelName = screen.getByLabelText("Name");
+      const expectLabelResume = screen.getByLabelText("Resume");
+      const expectLabelRecipe = screen.getByLabelText("Method");
+      const expectLabelCookintime = screen.getByLabelText("Cooking time");
+      const expectLabelIngredients = screen.getByLabelText("Ingredients");
+      const expectLabeVeggie = screen.getByLabelText("Veggie recipe?");
+      const expectLabelImage = screen.getByLabelText("Image");
 
-        const button = screen.getByRole("button", { name: "Add Recipe" });
+      userEvent.type(expectLabelName, expectedFormData.name);
+      userEvent.type(expectLabelResume, expectedFormData.resume);
+      userEvent.type(expectLabelRecipe, expectedFormData.recipe);
+      userEvent.type(expectLabelCookintime, expectedFormData.cookingtime);
+      userEvent.type(expectLabelIngredients, expectedFormData.ingredients);
+      userEvent.type(expectLabeVeggie, expectedFormData.veggie);
+      userEvent.type(expectLabelImage, expectedFormData.image);
 
-        expect(button).toBeDisabled();
-      });
+      const button = screen.getByText("Add Recipe");
+      userEvent.click(button);
+
+      expect(mockDispatch).toHaveBeenCalled();
     });
   });
 });

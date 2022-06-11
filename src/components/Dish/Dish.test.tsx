@@ -11,13 +11,13 @@ describe("Given a Dish component", () => {
         id: "123",
         name: "pep",
         veggie: "false",
-        ingredients: ["pep"],
+        ingredients: "pep",
         image: "pep",
         resume: "pep",
         recipe: "pep",
         cookingtime: "12h",
         daysofweek: ["lunes"],
-        createdby: { name: "Pepito", username: "Grillo" },
+        createdby: "Grillo",
       };
 
       render(

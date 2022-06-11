@@ -25,11 +25,20 @@ export interface DishesData {
   id: string;
   name: string;
   veggie: string;
-  ingredients: string[];
+  ingredients: string;
   image: string;
   resume: string;
   recipe: string;
   cookingtime: string;
   daysofweek: string[];
-  createdby: { name: string; username: string };
+  createdby: string;
+}
+export interface IDishesUserData {
+  name: string;
+  veggie: string;
+  ingredients: string;
+  image: string | File;
+  resume: string;
+  recipe: string;
+  cookingtime: string;
 }

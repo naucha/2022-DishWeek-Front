@@ -1,5 +1,7 @@
 import axios from "axios";
+import jwtDecode from "jwt-decode";
 import toast from "react-hot-toast";
+import { DishesData } from "../../types/types";
 import {
   createDishActionCreator,
   deleteDishActionCreator,
@@ -10,6 +12,7 @@ import { AppDispatch } from "../store/store";
 export const getDishesThunk = () => async (dispatch: AppDispatch) => {
   const url: string = `${process.env.REACT_APP_API_URL}dishes/list`;
   const token = localStorage.getItem("token");
+
   try {
     const { data: dishes } = await axios.get(url, {
       headers: { Authorization: `Bearer ${token}` },
@@ -44,23 +47,22 @@ export const deleteDishThunk =
 
 export const createDishThunk =
   (dishData: any) => async (dispatch: AppDispatch) => {
-    const url: string = `${process.env.REACT_APP_API_URL}dishes/create`;
-    const token = localStorage.getItem("token");
-
     try {
-      const {
-        data: { newDish },
-      } = await axios.post(url, dishData, {
+      const token = localStorage.getItem("token");
+      const url: string = `${process.env.REACT_APP_API_URL}dishes/create`;
+
+      const { data } = await axios.post(url, dishData, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
         },
       });
 
-      dispatch(createDishActionCreator(newDish));
+      dispatch(createDishActionCreator(data));
 
       toast.success("New recipe added");
-    } catch (error: any) {
+    } catch (error) {
+      console.log("666");
       toast.error("Failed to add, please try again");
     }
     toast.success("Removed");
