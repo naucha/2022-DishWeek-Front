@@ -57,10 +57,9 @@ export const createDishThunk =
       });
 
       dispatch(createDishActionCreator(data));
-
+      await dispatch(getDishesThunk());
       toast.success("New recipe added");
     } catch (error) {
-      console.log("666");
       toast.error("Failed to add, please try again");
     }
     toast.success("Removed");
