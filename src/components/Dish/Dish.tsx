@@ -26,7 +26,7 @@ export const Dish = ({
   return (
     <StyledDishComponent>
       <div className="info-text">
-        <h3>{name}</h3>
+        <h2>{name}</h2>
         <p>{cookingtime}</p>
       </div>
       <div className="image-container">
@@ -45,11 +45,7 @@ export const Dish = ({
             onClick={deleteDish}
           />
         ) : (
-          <img
-            className="buttons ban-solid"
-            src="/images/icons/ban-solid.svg"
-            alt="Icon not alowed"
-          />
+          ""
         )}
         <img
           className="buttons button-plus"
