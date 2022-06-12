@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useAppSelector } from "../../redux/store/hooks";
+import { DishesData } from "../../types/types";
 import { Dish } from "../Dish/Dish";
 
 const DishesListComponent = styled.div`
@@ -22,7 +23,7 @@ export const DishesList = () => {
   return (
     <DishesListComponent>
       <ul className="list">
-        {dishes.map((dish) => {
+        {dishes.map((dish: DishesData) => {
           return <Dish key={dish.id} dishes={dish} />;
         })}
       </ul>

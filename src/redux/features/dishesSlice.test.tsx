@@ -54,7 +54,7 @@ describe("Given a createDishes reducer", () => {
         cookingtime: "2h",
         daysofweek: [],
         createdby: "Grillo",
-        imageBackup: "image2.png",
+        imagebackup: "image2.png",
       };
 
       const createAction = createDishActionCreator(newDish);

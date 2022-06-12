@@ -32,7 +32,7 @@ export interface DishesData {
   cookingtime: string;
   daysofweek: string[];
   createdby: string;
-  imageBackup: string;
+  imagebackup: string;
 }
 export interface IDishesUserData {
   name: string;

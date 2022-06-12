@@ -8,11 +8,11 @@ export const Dish = ({
     id,
     name,
     image,
+    imagebackup,
     resume,
     cookingtime,
     veggie,
     createdby,
-    imageBackup,
   },
 }: {
   dishes: DishesData;
@@ -30,11 +30,7 @@ export const Dish = ({
         <p>{cookingtime}</p>
       </div>
       <div className="image-container">
-        <img
-          className="image-recipe"
-          alt={name}
-          src={image === "" ? "bowl-food.svg" : `${imageBackup}`}
-        />
+        <img className="image-recipe" alt={name} src={imagebackup} />
       </div>
       <p>{resume}</p>
       <p>Created by: {createdby}</p>
@@ -49,7 +45,11 @@ export const Dish = ({
             onClick={deleteDish}
           />
         ) : (
-          ""
+          <img
+            className="buttons ban-solid"
+            src="/images/icons/ban-solid.svg"
+            alt="Icon not alowed"
+          />
         )}
         <img
           className="buttons button-plus"

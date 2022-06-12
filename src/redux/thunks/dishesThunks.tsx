@@ -58,8 +58,8 @@ export const createDishThunk =
       });
 
       dispatch(createDishActionCreator(data));
-
       toast.success("New recipe added");
+      return;
     } catch (error) {
       toast.error("Failed to add, please try again");
     }

@@ -2,7 +2,10 @@ import { ChangeEvent, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../redux/store/hooks";
-import { createDishThunk } from "../../redux/thunks/dishesThunks";
+import {
+  createDishThunk,
+  getDishesThunk,
+} from "../../redux/thunks/dishesThunks";
 import { IDishesUserData } from "../../types/types";
 import StyledForm from "../styles/StyledForm";
 
@@ -60,6 +63,7 @@ const CreateForm = (): JSX.Element => {
 
     toast.success("Saving your recipe");
     resetForm();
+    await dispatch(getDishesThunk());
     navigate("/home");
   };
 
@@ -86,7 +90,7 @@ const CreateForm = (): JSX.Element => {
           value={formData.ingredients}
           onChange={changeData}
         ></input>
-
+        <p>Enter the ingredients separated by commas</p>
         <label htmlFor="cookingtime">Cooking time</label>
         <input
           aria-autocomplete="none"
