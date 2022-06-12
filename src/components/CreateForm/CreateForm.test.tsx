@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
@@ -6,6 +6,7 @@ import store from "../../redux/store/store";
 import CreateForm from "./CreateForm";
 
 const mockDispatch = jest.fn();
+
 jest.mock("react-redux", () => ({
   ...jest.requireActual("react-redux"),
   useDispatch: () => mockDispatch,
@@ -17,9 +18,8 @@ jest.mock("../../redux/thunks/dishesThunks", () => ({
 
 describe("Given a Create form component", () => {
   describe("When it's invoked", () => {
-    test("Then it should render a heading, 7 labels and button", () => {
+    test("Then it should render a heading, 7 labels and button", async () => {
       const expectedText = "Add new recipe";
-
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -27,15 +27,14 @@ describe("Given a Create form component", () => {
           </Provider>
         </BrowserRouter>
       );
-
       const expectedRenderedHeading = screen.getByRole("heading", { level: 2 });
-
       const expectLabelName = screen.getByLabelText("Name");
       const expectLabelResume = screen.getByLabelText("Resume");
       const expectLabelImage = screen.getByLabelText("Image");
       const expectLabelIngredients = screen.getByLabelText("Ingredients");
       const expectLabelMethod = screen.getByLabelText("Method");
       const expectLabelVeggie = screen.getByLabelText("Veggie recipe?");
+
       const button = screen.getByRole("button");
 
       expect(expectedRenderedHeading).toHaveTextContent(expectedText);
@@ -45,13 +44,12 @@ describe("Given a Create form component", () => {
       expect(expectLabelMethod).toBeInTheDocument();
       expect(expectLabelImage).toBeInTheDocument();
       expect(expectLabelVeggie).toBeInTheDocument();
-
       expect(button).toBeInTheDocument();
     });
   });
 
   describe("When the button is clicked", () => {
-    test("Then it dispatch createDishThunk", () => {
+    test("Then it dispatch createDishThunk", async () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -59,7 +57,6 @@ describe("Given a Create form component", () => {
           </Provider>
         </BrowserRouter>
       );
-
       const expectedFormData = {
         name: "Salmon",
         resume: "Salmon Salmon",
@@ -89,7 +86,9 @@ describe("Given a Create form component", () => {
       const button = screen.getByText("Add Recipe");
       userEvent.click(button);
 
-      expect(mockDispatch).toHaveBeenCalled();
+      await waitFor(() => {
+        expect(mockDispatch).toHaveBeenCalled();
+      });
     });
   });
 });
