@@ -22,6 +22,7 @@ export const mockDish = [
     cookingtime: "2h",
     daysofweek: [],
     createdby: "Grillo",
+    imageBackup: "image2.png",
   },
 ];
 
@@ -38,6 +39,7 @@ export const mockDishes = [
     cookingtime: "2h",
     daysofweek: [],
     createdby: "Grillso",
+    imageBackup: "image3.png",
   },
   {
     id: "1dsaa",
@@ -51,5 +53,6 @@ export const mockDishes = [
     cookingtime: "1h",
     daysofweek: [],
     createdby: "Grilla",
+    imageBackup: "image1.png",
   },
 ];

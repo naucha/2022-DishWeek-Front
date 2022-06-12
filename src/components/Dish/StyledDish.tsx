@@ -17,6 +17,8 @@ export const StyledDishComponent = styled.li`
   border: 3px solid #fff;
 
   .image-container {
+    margin-top: 20px;
+    margin-bottom: 10px;
     border-radius: 50%;
     overflow: hidden;
     border: 3px solid #fff;
@@ -64,6 +66,7 @@ export const StyledDishComponent = styled.li`
     &::after {
       transition: transform ease-in;
     }
+    position: static;
   }
 
   .dish_buttons {
@@ -72,5 +75,6 @@ export const StyledDishComponent = styled.li`
     width: 350px;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 8px;
   }
 `;
