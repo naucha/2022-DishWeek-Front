@@ -29,7 +29,7 @@ describe("Given a Dish component", () => {
         </BrowserRouter>
       );
 
-      const expectName = screen.getByRole("heading", { level: 3 });
+      const expectName = screen.getByRole("heading", { level: 2 });
 
       expect(expectName).toBeInTheDocument();
     });
