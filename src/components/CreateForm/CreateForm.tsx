@@ -78,14 +78,14 @@ const CreateForm = (): JSX.Element => {
         ></input>
         <label htmlFor="ingredients">Ingredients</label>
 
-        <input
+        <textarea
           name="ingredients"
-          type="text"
           id="ingredients"
-          placeholder="Ingredient"
+          placeholder={`${"- One Lemon \n- Mint \n- ..."}`}
           value={formData.ingredients}
+          className="textarea"
           onChange={changeData}
-        ></input>
+        ></textarea>
 
         <label htmlFor="cookingtime">Cooking time</label>
         <input

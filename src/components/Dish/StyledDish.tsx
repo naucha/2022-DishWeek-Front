@@ -17,6 +17,8 @@ export const StyledDishComponent = styled.li`
   border: 3px solid #fff;
 
   .image-container {
+    margin-top: 20px;
+    margin-bottom: 10px;
     border-radius: 50%;
     overflow: hidden;
     border: 3px solid #fff;
@@ -42,6 +44,7 @@ export const StyledDishComponent = styled.li`
     width: 350px;
     height: 70px;
   }
+
   h3 {
     margin: 0;
     margin-top: 15px;
@@ -50,6 +53,7 @@ export const StyledDishComponent = styled.li`
     font-size: 35px;
     font-weight: 700;
   }
+
   p {
     text-align: left;
     text-align: justify;
@@ -64,6 +68,11 @@ export const StyledDishComponent = styled.li`
     &::after {
       transition: transform ease-in;
     }
+    position: static;
+  }
+  .ban-solid {
+    width: 40px;
+    height: 40px;
   }
 
   .dish_buttons {
@@ -72,5 +81,6 @@ export const StyledDishComponent = styled.li`
     width: 350px;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 8px;
   }
 `;

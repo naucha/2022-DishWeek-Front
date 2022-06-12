@@ -41,6 +41,7 @@ export const deleteDishThunk =
       toast.error("Failed to delete, please try again");
       return error.message;
     }
+    toast.success("Removed");
   };
 
 export const createDishThunk =
@@ -57,10 +58,9 @@ export const createDishThunk =
       });
 
       dispatch(createDishActionCreator(data));
-      await dispatch(getDishesThunk());
       toast.success("New recipe added");
+      return;
     } catch (error) {
       toast.error("Failed to add, please try again");
     }
-    toast.success("Removed");
   };
