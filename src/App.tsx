@@ -14,6 +14,7 @@ import GateController from "./components/GateController/GateController";
 import { Error404Page } from "./pages/Error404/Error404";
 import { CreatePage } from "./pages/Create/CreatePage";
 import { AntiGateController } from "./components/AntiGateController/AntiGateController";
+import { EditPage } from "./pages/Edit/EditPage";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -76,6 +77,14 @@ function App() {
           element={
             <GateController>
               <CreatePage />
+            </GateController>
+          }
+        />
+        <Route
+          path="/edit"
+          element={
+            <GateController>
+              <EditPage />
             </GateController>
           }
         />
