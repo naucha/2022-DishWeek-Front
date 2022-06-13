@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
@@ -79,7 +79,7 @@ describe("Given a LogInForm component", () => {
   });
 
   describe("When the username and the password fields are fill when the button is clicked", () => {
-    test("Then it dispatch", () => {
+    test("Then it dispatch", async () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -97,7 +97,9 @@ describe("Given a LogInForm component", () => {
 
       userEvent.click(button);
 
-      expect(mockDispatch).toHaveBeenCalled();
+      await waitFor(() => {
+        expect(mockDispatch).toHaveBeenCalled();
+      });
     });
   });
 });

@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
@@ -101,7 +101,7 @@ describe("Given a Register component", () => {
     });
   });
   describe("When the button is clicked", () => {
-    test("Then dispatch the registerUserThunk", () => {
+    test("Then dispatch the registerUserThunk", async () => {
       const userData = mockUserRegisterPage;
 
       render(
@@ -123,7 +123,9 @@ describe("Given a Register component", () => {
       const button = screen.getByRole("button", { name: "Sign Up" });
       userEvent.click(button);
 
-      expect(mockDispatch).toHaveBeenCalled();
+      await waitFor(() => {
+        expect(mockDispatch).toHaveBeenCalled();
+      });
     });
   });
 });
