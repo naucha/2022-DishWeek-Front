@@ -46,7 +46,7 @@ describe("Given a createDishes reducer", () => {
         id: "eqwa",
         name: "arroz",
         veggie: "true",
-        ingredients: "cebolla",
+        ingredients: ["cebolla"],
         image: "image",
         resume: "Poner a hervir...",
         recipe:

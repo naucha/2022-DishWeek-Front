@@ -25,7 +25,7 @@ export interface DishesData {
   id: string;
   name: string;
   veggie: string;
-  ingredients: string;
+  ingredients: string[];
   image: string;
   resume: string;
   recipe: string;
