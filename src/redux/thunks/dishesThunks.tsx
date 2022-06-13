@@ -1,6 +1,5 @@
 import axios from "axios";
 import toast from "react-hot-toast";
-import { dispatch } from "react-hot-toast/dist/core/store";
 import { DishesData } from "../../types/types";
 import {
   createDishActionCreator,

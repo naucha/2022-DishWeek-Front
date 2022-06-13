@@ -4,6 +4,7 @@ import dishesSlice, {
   createDishActionCreator,
   deleteDishActionCreator,
   loadDishesActionCreator,
+  updateDishActionCreator,
 } from "./dishesSlice";
 
 describe("Given a loadDishes reducer", () => {
@@ -62,6 +63,36 @@ describe("Given a createDishes reducer", () => {
       const dishes = dishesSlice(initialState, createAction);
 
       expect(dishes).toHaveLength(expectedLength);
+    });
+  });
+});
+
+describe("Given a updateDish reducer", () => {
+  describe("When receives an id and a dish to modify", () => {
+    test("Then it should a new state including the updated dish", () => {
+      const initialState = [mockDishes[0], mockDishes[1]];
+
+      const updatemockDish = {
+        id: "1dsaa",
+        name: "sopa",
+        veggie: "true",
+        ingredients: ["tomate"],
+        image: "image",
+        resume: "Hervir...",
+        recipe:
+          "El secreto de estos macarrones es el sofrito. No tengas prisa en realizarlo y te quedará de fábula. Pocha la cebolla lentamente hasta que quede bien caramelizada. Entonces, agrega los pimientos, el ajo, el tomate… y, por último, las setas, previamente",
+        cookingtime: "1h",
+        daysofweek: [],
+        createdby: "Grilla",
+        imagebackup: "image1.png",
+      };
+
+      const updateDishAction = updateDishActionCreator(updatemockDish);
+      const expectedState = [mockDishes[0], updatemockDish];
+
+      const dishStatus = dishesSlice(initialState, updateDishAction);
+
+      expect(dishStatus).toEqual(expectedState);
     });
   });
 });
