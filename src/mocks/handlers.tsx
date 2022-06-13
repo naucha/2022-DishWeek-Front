@@ -28,4 +28,11 @@ export const handlers = [
       return res(ctx.status(200), ctx.json(mockDishes[1].id));
     }
   ),
+
+  rest.get(
+    `${process.env.REACT_APP_API_URL}dishes/:idDish`,
+    (req, res, ctx) => {
+      return res(ctx.status(200), ctx.json(mockDish[0]));
+    }
+  ),
 ];
