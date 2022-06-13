@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { deleteDishThunk } from "../../redux/thunks/dishesThunks";
 import { DishesData } from "../../types/types";
@@ -19,6 +20,8 @@ export const Dish = ({
 }) => {
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.user);
+  const navigate = useNavigate();
+
   const deleteDish = () => {
     dispatch(deleteDishThunk(id));
   };
@@ -38,12 +41,20 @@ export const Dish = ({
 
       <div className="dish_buttons">
         {user.username === createdby ? (
-          <img
-            className="buttons button-minus"
-            src="/images/icons/circle-minus-solid.svg"
-            alt="Button for remove recipes"
-            onClick={deleteDish}
-          />
+          <>
+            <img
+              className="buttons button-minus"
+              src="/images/icons/circle-minus-solid.svg"
+              alt="Button for remove recipes"
+              onClick={deleteDish}
+            />
+            <img
+              className="buttons button-edit"
+              src="/images/icons/pen-solid.svg"
+              alt="Button for edit recipes"
+              onClick={() => navigate(`/edit/${id}`)}
+            />
+          </>
         ) : (
           ""
         )}
