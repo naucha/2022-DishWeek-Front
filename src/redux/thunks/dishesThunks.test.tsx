@@ -5,11 +5,13 @@ import {
   createDishActionCreator,
   deleteDishActionCreator,
   loadDishesActionCreator,
+  updateDishActionCreator,
 } from "../features/dishesSlice";
 import {
   createDishThunk,
   deleteDishThunk,
   getDishesThunk,
+  updateThunk,
 } from "./dishesThunks";
 
 beforeEach(() => server.listen());
@@ -60,6 +62,30 @@ describe("Given createDishesThunk", () => {
 
       const expectedAction = createDishActionCreator(createDish);
       const thunk = await createDishThunk(newDish);
+      await thunk(dispatch);
+
+      expect(dispatch).toHaveBeenCalledWith(expectedAction);
+    });
+  });
+});
+
+describe("Given updateDishThunk", () => {
+  describe("When its invoked", () => {
+    test("Then it should dispatch updateDishActionCreator", async () => {
+      const dispatch = jest.fn();
+      const dish = mockDish[0];
+      const dishId = mockDish[0].id;
+
+      const updateDish = { ...dish };
+
+      const response = { status: 201, data: updateDish };
+
+      axios.put = jest.fn().mockResolvedValue(response);
+
+      const expectedAction = updateDishActionCreator(updateDish);
+
+      const thunk = await updateThunk(dishId, dish);
+
       await thunk(dispatch);
 
       expect(dispatch).toHaveBeenCalledWith(expectedAction);
