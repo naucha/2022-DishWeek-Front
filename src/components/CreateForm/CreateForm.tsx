@@ -1,7 +1,7 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../../redux/store/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { createDishThunk } from "../../redux/thunks/dishesThunks";
 import { IDishesUserData } from "../../types/types";
 import StyledForm from "../styles/StyledForm";
@@ -19,6 +19,10 @@ const CreateForm = (): JSX.Element => {
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+
+  const dishState = useAppSelector((state) => state.dish);
+
+  useEffect(() => {}, [dishState]);
 
   const [formData, setFormData] = useState(initialDishState);
 
