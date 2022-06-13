@@ -1,30 +1,39 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
-import { createDishThunk } from "../../redux/thunks/dishesThunks";
-import { IDishesUserData } from "../../types/types";
+import { createDishThunk, updateThunk } from "../../redux/thunks/dishesThunks";
+import { DishesData } from "../../types/types";
 import StyledForm from "../styles/StyledForm";
 
 const CreateForm = (): JSX.Element => {
-  const initialDishState: IDishesUserData = {
+  const initialFormState: DishesData = {
     name: "",
     image: "",
     resume: "",
     recipe: "",
     veggie: "false",
     cookingtime: "",
-    ingredients: "",
+    ingredients: [],
+    imagebackup: "",
+    createdby: "",
+    daysofweek: [],
+    id: "",
   };
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
+  const [formData, setFormData] = useState(initialFormState);
+
   const dishState = useAppSelector((state) => state.dish);
+  const location = useLocation();
 
-  useEffect(() => {}, [dishState]);
-
-  const [formData, setFormData] = useState(initialDishState);
+  useEffect(() => {
+    if (dishState) {
+      setFormData(dishState);
+    }
+  }, [dishState]);
 
   const changeData = (event: { target: { id: string; value: string } }) => {
     setFormData({
@@ -44,12 +53,11 @@ const CreateForm = (): JSX.Element => {
   };
 
   const resetForm = () => {
-    setFormData(initialDishState);
+    setFormData(initialFormState);
   };
 
   const onSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-
     const newDishData = new FormData();
 
     newDishData.append("name", formData.name);
@@ -57,10 +65,12 @@ const CreateForm = (): JSX.Element => {
     newDishData.append("recipe", formData.recipe);
     newDishData.append("cookingtime", formData.cookingtime);
     newDishData.append("veggie", formData.veggie);
-    newDishData.append("ingredient", formData.ingredients);
+    newDishData.append("ingredient", formData.ingredients[0]);
     newDishData.append("image", formData.image);
 
-    await dispatch(createDishThunk(newDishData));
+    formData.id
+      ? dispatch(updateThunk(formData.id, formData))
+      : dispatch(createDishThunk(newDishData));
 
     toast.success("Saving your recipe");
     resetForm();
@@ -69,8 +79,14 @@ const CreateForm = (): JSX.Element => {
 
   return (
     <StyledForm>
-      <h2>Add new recipe</h2>
-      <p className="greeting">Someting new to save</p>
+      <h2>
+        {location.pathname === "/create" ? "Add new recipe" : "Update a recipe"}
+      </h2>
+      <p className="greeting">
+        {location.pathname === "/create"
+          ? "Something new to save"
+          : "Something to improve"}
+      </p>
       <form className="form" noValidate autoComplete="off" onSubmit={onSubmit}>
         <label htmlFor="name">Name</label>
         <input
@@ -90,6 +106,7 @@ const CreateForm = (): JSX.Element => {
           className="textarea"
           onChange={changeData}
         ></textarea>
+        <p>Easy to read easy to cook, enter ingredients as shown. </p>
 
         <label htmlFor="cookingtime">Cooking time</label>
         <input
@@ -144,7 +161,7 @@ const CreateForm = (): JSX.Element => {
         </label>
 
         <button className="button add-recipe" type="submit">
-          Add Recipe
+          {location.pathname === "/create" ? "Add Recipe" : "Save Changes"}
         </button>
       </form>
     </StyledForm>
