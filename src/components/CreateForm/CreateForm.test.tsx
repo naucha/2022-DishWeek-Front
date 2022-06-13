@@ -19,7 +19,6 @@ jest.mock("../../redux/thunks/dishesThunks", () => ({
 describe("Given a Create form component", () => {
   describe("When it's invoked", () => {
     test("Then it should render a heading, 7 labels and button", async () => {
-      const expectedText = "Add new recipe";
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -37,7 +36,7 @@ describe("Given a Create form component", () => {
 
       const button = screen.getByRole("button");
 
-      expect(expectedRenderedHeading).toHaveTextContent(expectedText);
+      expect(expectedRenderedHeading).toBeInTheDocument();
       expect(expectLabelName).toBeInTheDocument();
       expect(expectLabelIngredients).toBeInTheDocument();
       expect(expectLabelResume).toBeInTheDocument();
@@ -83,7 +82,7 @@ describe("Given a Create form component", () => {
       userEvent.type(expectLabeVeggie, expectedFormData.veggie);
       userEvent.type(expectLabelImage, expectedFormData.image);
 
-      const button = screen.getByText("Add Recipe");
+      const button = screen.getByRole("button");
       userEvent.click(button);
 
       await waitFor(() => {
