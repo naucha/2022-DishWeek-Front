@@ -37,19 +37,23 @@ export const Dish = ({
       </div>
       <p>{resume}</p>
       <p>Created by: {createdby}</p>
-      {veggie ? <p>Veggie</p> : <p>No Veggie</p>}
+      {veggie === "true" ? (
+        <p className="vegan">Veggie</p>
+      ) : (
+        <p className="vegan">No Veggie</p>
+      )}
 
-      <div className="dish_buttons">
+      <div className="buttons-container">
         {user.username === createdby ? (
           <>
             <img
-              className="buttons button-minus"
+              className="buttons button--minus"
               src="/images/icons/circle-minus-solid.svg"
               alt="Button for remove recipes"
               onClick={deleteDish}
             />
             <img
-              className="buttons button-edit"
+              className="buttons button--edit"
               src="/images/icons/pen-solid.svg"
               alt="Button for edit recipes"
               onClick={() => navigate(`/edit/${id}`)}
@@ -59,7 +63,7 @@ export const Dish = ({
           ""
         )}
         <img
-          className="buttons button-plus"
+          className="buttons button--plus"
           src="/images/icons/circle-plus-solid.svg"
           alt="Button for add recipes"
         />

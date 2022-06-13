@@ -65,17 +65,22 @@ export const StyledDishComponent = styled.li`
     width: 60px;
     height: 60px;
     width: max-content;
+    cursor: pointer;
     &::after {
       transition: transform ease-in;
     }
     position: static;
   }
-  .ban-solid {
+  .button--edit {
     width: 40px;
     height: 40px;
   }
 
-  .dish_buttons {
+  .button--plus {
+    cursor: default;
+  }
+
+  .buttons-container {
     display: flex;
     height: 60px;
     width: 350px;
