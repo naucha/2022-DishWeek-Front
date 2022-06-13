@@ -80,7 +80,8 @@ export const updateThunk =
         },
       });
       dispatch(updateDishActionCreator(data));
+      toast.success("Updated");
     } catch (error) {
-      toast.error("Failed to add, please try again");
+      toast.error("Failed to update, please try again");
     }
   };
