@@ -46,6 +46,19 @@ describe("Given a Header component", () => {
           logged: false,
         },
         dishes: [],
+        dish: {
+          id: "",
+          name: "",
+          veggie: "",
+          ingredients: [],
+          image: "",
+          resume: "",
+          recipe: "",
+          cookingtime: "",
+          daysofweek: [],
+          createdby: "",
+          imagebackup: "",
+        },
       };
 
       const expectButton = screen.getByRole("button", { name: "Logout" });
@@ -53,7 +66,7 @@ describe("Given a Header component", () => {
       userEvent.click(expectButton);
 
       const getState = store.getState();
-      console.log(window.localStorage.getItem("token"));
+
       expect(window.localStorage.getItem("token")).toBe(undefined);
 
       expect(getState).toStrictEqual(expectedLogoutState);
