@@ -1,9 +1,11 @@
 import axios from "axios";
 import toast from "react-hot-toast";
+import { DishesData } from "../../types/types";
 import {
   createDishActionCreator,
   deleteDishActionCreator,
   loadDishesActionCreator,
+  updateDishActionCreator,
 } from "../features/dishesSlice";
 import { AppDispatch } from "../store/store";
 
@@ -52,7 +54,7 @@ export const createDishThunk =
 
       const { data } = await axios.post(url, dishData, {
         headers: {
-          authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
         },
       });
@@ -62,5 +64,23 @@ export const createDishThunk =
       return;
     } catch (error) {
       toast.error("Failed to add, please try again");
+    }
+  };
+
+export const updateThunk =
+  (idDish: string, dishData: DishesData) => async (dispatch: AppDispatch) => {
+    try {
+      const token = localStorage.getItem("token");
+      const url: string = `${process.env.REACT_APP_API_URL}dishes/edit/${idDish}`;
+
+      const { data } = await axios.put(url, dishData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      dispatch(updateDishActionCreator(data));
+      toast.success("Updated");
+    } catch (error) {
+      toast.error("Failed to update, please try again");
     }
   };

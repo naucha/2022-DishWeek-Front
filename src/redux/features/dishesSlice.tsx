@@ -16,6 +16,10 @@ const dishesSlice = createSlice({
       ...dishes,
       action.payload,
     ],
+    updateDish: (dishes, action: PayloadAction<DishesData>) =>
+      dishes.map((dish) =>
+        dish.id === action.payload.id ? action.payload : dish
+      ),
   },
 });
 
@@ -23,6 +27,7 @@ export const {
   loadDishes: loadDishesActionCreator,
   deleteDish: deleteDishActionCreator,
   createDish: createDishActionCreator,
+  updateDish: updateDishActionCreator,
 } = dishesSlice.actions;
 
 export default dishesSlice.reducer;
