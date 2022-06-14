@@ -11,6 +11,19 @@ const CreateForm = (): JSX.Element => {
   const dishState = useAppSelector((state) => state.dish);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const blankFields = {
+    name: "",
+    resume: "",
+    recipe: "",
+    veggie: "false",
+    cookingtime: "",
+    ingredients: "",
+    image: "",
+    imagebackup: "",
+    createdby: "",
+    id: "",
+    daysofweek: [],
+  };
 
   const initialFormState: DishesData = {
     name: dishState ? dishState.name : "",
@@ -64,10 +77,6 @@ const CreateForm = (): JSX.Element => {
     });
   };
 
-  const resetForm = () => {
-    setFormData(initialFormState);
-  };
-
   const onSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     const newDishData = new FormData();
@@ -85,8 +94,8 @@ const CreateForm = (): JSX.Element => {
       : dispatch(createDishThunk(newDishData));
 
     toast.success("Saving your recipe");
-    resetForm();
     dispatch(blankDishActionCreator());
+    setFormData(blankFields);
     navigate("/home");
   };
 
@@ -114,7 +123,7 @@ const CreateForm = (): JSX.Element => {
         <textarea
           name="ingredients"
           id="ingredients"
-          placeholder={`${"- One Lemon \n- Mint \n- ..."}`}
+          placeholder={`${"One Lemon, Mint, ..."}`}
           value={formData.ingredients}
           className="textarea"
           onChange={changeDataIngredients}

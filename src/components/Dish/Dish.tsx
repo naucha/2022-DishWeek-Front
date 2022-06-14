@@ -33,7 +33,12 @@ export const Dish = ({
         <p>{cookingtime}</p>
       </div>
       <div className="image-container">
-        <img className="image-recipe" alt={name} src={imagebackup} />
+        <img
+          className="image-recipe"
+          alt={name}
+          src={imagebackup}
+          onClick={() => navigate(`/detail/${id}`)}
+        />
       </div>
       <p>{resume}</p>
       <p>Created by: {createdby}</p>

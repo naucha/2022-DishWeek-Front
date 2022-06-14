@@ -1,10 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../redux/store/hooks";
 import { StyledDetailDish } from "./StyledDetailDish";
 
 export const DetailDish = () => {
   const { name, imagebackup, recipe, ingredients, cookingtime, veggie } =
     useAppSelector((state) => state.dish);
-
+  const navigate = useNavigate();
   return (
     <StyledDetailDish className="detail">
       <div className="detail__image">
@@ -39,6 +40,14 @@ export const DetailDish = () => {
       <div className="detail__method">
         <h3 className="detail__method--label">Method</h3>
         <p className="detail__method--content">{recipe}</p>
+      </div>
+      <div className="detail__exit">
+        <img
+          className="detail__exit--icon"
+          src="/images/icons/xmark-solid.svg"
+          alt="Return to Dishes"
+          onClick={() => navigate("/home")}
+        ></img>
       </div>
     </StyledDetailDish>
   );
