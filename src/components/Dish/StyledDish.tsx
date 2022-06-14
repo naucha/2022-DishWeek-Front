@@ -24,7 +24,6 @@ export const StyledDishComponent = styled.li`
     border: 3px solid #fff;
     width: 13rem;
     height: 13rem;
-    background-image: url("happy-face.jpg");
     background-size: cover;
     align-items: center;
     justify-content: center;
@@ -45,12 +44,12 @@ export const StyledDishComponent = styled.li`
     height: 70px;
   }
 
-  h3 {
+  h2 {
     margin: 0;
     margin-top: 15px;
     text-align: left;
     color: var(--fc-primary);
-    font-size: 35px;
+    font-size: 28px;
     font-weight: 700;
   }
 
