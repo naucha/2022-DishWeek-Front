@@ -9,7 +9,7 @@ describe("Given a dishSlice reduecer", () => {
         id: "",
         name: "",
         veggie: "",
-        ingredients: [],
+        ingredients: "",
         image: "",
         resume: "",
         recipe: "",

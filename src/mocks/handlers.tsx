@@ -29,10 +29,7 @@ export const handlers = [
     }
   ),
 
-  rest.get(
-    `${process.env.REACT_APP_API_URL}dishes/:idDish`,
-    (req, res, ctx) => {
-      return res(ctx.status(200), ctx.json(mockDish[0]));
-    }
-  ),
+  rest.get(`${process.env.REACT_APP_API_URL}dishes/123ea`, (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(mockDish[0]));
+  }),
 ];

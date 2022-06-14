@@ -14,7 +14,7 @@ export const mockDish = [
     id: "123ea",
     name: "macarrones",
     veggie: "true",
-    ingredients: ["cebolla"],
+    ingredients: "cebolla",
     image: "image",
     resume: "Poner a hervir...",
     recipe:
@@ -31,7 +31,7 @@ export const mockDishes = [
     id: "1213ea",
     name: "macarrones",
     veggie: "true",
-    ingredients: ["pasta"],
+    ingredients: "pasta",
     image: "image",
     resume: "Poner a hervir...",
     recipe:
@@ -45,7 +45,7 @@ export const mockDishes = [
     id: "1dsaa",
     name: "sopa",
     veggie: "true",
-    ingredients: ["tomate"],
+    ingredients: "tomate",
     image: "image",
     resume: "Hervir...",
     recipe:
