@@ -7,9 +7,10 @@ export const StyledDetailDish = styled.div`
   align-items: center;
   border: 3px solid #fff;
   border-radius: 32px;
-  width: 360px;
+  width: 375px;
   max-width: 460px;
   min-width: 300px;
+  margin-bottom: 40px;
 
   .detail {
     &__image {
@@ -18,7 +19,7 @@ export const StyledDetailDish = styled.div`
       display: flex;
       flex-direction: column;
       border-bottom: 3px solid #fff;
-      width: 360px;
+      width: 375px;
       max-width: 460px;
       min-width: 300px;
     }
@@ -95,9 +96,23 @@ export const StyledDetailDish = styled.div`
       &--content {
         padding-left: 15px;
         padding-right: 15px;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
         letter-spacing: 3px;
         line-height: 1.6;
+        text-align: justify;
+      }
+    }
+    &__exit {
+      width: 350px;
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 8px;
+      &--icon {
+        display: flex;
+        cursor: pointer;
+        width: 30px;
+        margin-bottom: 15px;
+        border: 2px solid var(-red);
       }
     }
   }
