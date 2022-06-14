@@ -15,6 +15,7 @@ import { Error404Page } from "./pages/Error404/Error404";
 import { CreatePage } from "./pages/Create/CreatePage";
 import { AntiGateController } from "./components/AntiGateController/AntiGateController";
 import { EditPage } from "./pages/Edit/EditPage";
+import { DetailPage } from "./pages/DetailPage/DetailPage";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -85,6 +86,14 @@ function App() {
           element={
             <GateController>
               <EditPage />
+            </GateController>
+          }
+        />
+        <Route
+          path="/detail/:idDish"
+          element={
+            <GateController>
+              <DetailPage />
             </GateController>
           }
         />

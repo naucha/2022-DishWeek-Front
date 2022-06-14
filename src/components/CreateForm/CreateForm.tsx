@@ -80,9 +80,8 @@ const CreateForm = (): JSX.Element => {
     newDishData.append("ingredient", formData.ingredients);
     newDishData.append("image", formData.image);
 
-    console.log(formData.ingredients);
     formData.id
-      ? dispatch(updateThunk(formData.id, formData))
+      ? dispatch(updateThunk(formData.id as string, formData))
       : dispatch(createDishThunk(newDishData));
 
     toast.success("Saving your recipe");
