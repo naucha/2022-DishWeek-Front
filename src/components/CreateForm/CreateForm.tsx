@@ -28,18 +28,6 @@ const CreateForm = (): JSX.Element => {
 
   const [formData, setFormData] = useState(initialFormState);
 
-  // useEffect(() => {
-  //   let ingredients = dishState.ingredients;
-  //   if (ingredients) {
-  //     const formatIngredients = ingredients
-  //       .map((ingredient) => ingredient.replace("", "- "))
-  //       .join("\r\n");
-  //     console.log(formData.ingredients);
-  //     console.log(dishState.ingredients);
-  //     console.log(dishState);
-  //   }
-  // }, [dishState.ingredients, formData.ingredients]);
-
   const location = useLocation();
 
   useEffect(() => {
