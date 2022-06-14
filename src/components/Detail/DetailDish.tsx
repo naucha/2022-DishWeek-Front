@@ -37,9 +37,7 @@ export const DetailDish = () => {
         </ul>
       </div>
       <div className="detail__method">
-        <label className="detail__method--label" htmlFor="recipe">
-          Method
-        </label>
+        <h3 className="detail__method--label">Method</h3>
         <p className="detail__method--content">{recipe}</p>
       </div>
     </StyledDetailDish>
