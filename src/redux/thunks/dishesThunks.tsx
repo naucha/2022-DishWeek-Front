@@ -73,15 +73,13 @@ export const updateThunk =
       const token = localStorage.getItem("token");
       const url: string = `${process.env.REACT_APP_API_URL}dishes/edit/${idDish}`;
 
-      const {
-        data: { updatedDish },
-      } = await axios.put(url, dishData, {
+      const { data } = await axios.put(url, dishData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-
-      dispatch(updateDishActionCreator(updatedDish));
+      debugger;
+      dispatch(updateDishActionCreator(data));
 
       toast.success("Updated");
     } catch (error) {
