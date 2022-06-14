@@ -50,7 +50,7 @@ describe("Given a Header component", () => {
           id: "",
           name: "",
           veggie: "",
-          ingredients: [],
+          ingredients: "",
           image: "",
           resume: "",
           recipe: "",

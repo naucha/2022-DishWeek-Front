@@ -5,7 +5,7 @@ const initialState: DishesData = {
   id: "",
   name: "",
   veggie: "",
-  ingredients: [],
+  ingredients: "",
   image: "",
   resume: "",
   recipe: "",
@@ -22,9 +22,13 @@ const dishSlice = createSlice({
     loadDish: (dish, action: PayloadAction<DishesData>) => ({
       ...action.payload,
     }),
+    blankDish: () => initialState,
   },
 });
 
-export const { loadDish: loadDishActionCreator } = dishSlice.actions;
+export const {
+  loadDish: loadDishActionCreator,
+  blankDish: blankDishActionCreator,
+} = dishSlice.actions;
 
 export default dishSlice.reducer;

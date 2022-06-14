@@ -78,7 +78,9 @@ export const updateThunk =
           Authorization: `Bearer ${token}`,
         },
       });
+
       dispatch(updateDishActionCreator(data));
+
       toast.success("Updated");
     } catch (error) {
       toast.error("Failed to update, please try again");

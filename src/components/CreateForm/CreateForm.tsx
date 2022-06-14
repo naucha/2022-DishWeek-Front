@@ -1,32 +1,45 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
+import { blankDishActionCreator } from "../../redux/features/dishSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { createDishThunk, updateThunk } from "../../redux/thunks/dishesThunks";
 import { DishesData } from "../../types/types";
 import StyledForm from "../styles/StyledForm";
 
 const CreateForm = (): JSX.Element => {
-  const initialFormState: DishesData = {
-    name: "",
-    image: "",
-    resume: "",
-    recipe: "",
-    veggie: "false",
-    cookingtime: "",
-    ingredients: [],
-    imagebackup: "",
-    createdby: "",
-    daysofweek: [],
-    id: "",
-  };
-
+  const dishState = useAppSelector((state) => state.dish);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
+  const initialFormState: DishesData = {
+    name: dishState ? dishState.name : "",
+    image: dishState ? dishState.image : "",
+    resume: dishState ? dishState.resume : "",
+    recipe: dishState ? dishState.recipe : "",
+    veggie: dishState ? dishState.veggie : "false",
+    cookingtime: dishState ? dishState.cookingtime : "",
+    ingredients: dishState ? dishState.ingredients : "",
+    imagebackup: dishState ? dishState.imagebackup : "",
+    createdby: dishState ? dishState.createdby : "",
+    daysofweek: dishState ? dishState.daysofweek : [],
+    id: dishState ? dishState.id : "",
+  };
+
   const [formData, setFormData] = useState(initialFormState);
 
-  const dishState = useAppSelector((state) => state.dish);
+  // useEffect(() => {
+  //   let ingredients = dishState.ingredients;
+  //   if (ingredients) {
+  //     const formatIngredients = ingredients
+  //       .map((ingredient) => ingredient.replace("", "- "))
+  //       .join("\r\n");
+  //     console.log(formData.ingredients);
+  //     console.log(dishState.ingredients);
+  //     console.log(dishState);
+  //   }
+  // }, [dishState.ingredients, formData.ingredients]);
+
   const location = useLocation();
 
   useEffect(() => {
@@ -42,6 +55,17 @@ const CreateForm = (): JSX.Element => {
         (event.target as HTMLInputElement).type === "checkbox"
           ? (event.target as HTMLInputElement).checked.toString()
           : (event.target as HTMLInputElement).value,
+    });
+  };
+
+  const changeDataIngredients = (event: {
+    target: { id: string; value: string };
+  }) => {
+    setFormData({
+      ...formData,
+      [(event.target as HTMLInputElement).id]: (
+        event.target as HTMLInputElement
+      ).value,
     });
   };
 
@@ -65,15 +89,17 @@ const CreateForm = (): JSX.Element => {
     newDishData.append("recipe", formData.recipe);
     newDishData.append("cookingtime", formData.cookingtime);
     newDishData.append("veggie", formData.veggie);
-    newDishData.append("ingredient", formData.ingredients[0]);
+    newDishData.append("ingredient", formData.ingredients);
     newDishData.append("image", formData.image);
 
+    console.log(formData.ingredients);
     formData.id
       ? dispatch(updateThunk(formData.id, formData))
       : dispatch(createDishThunk(newDishData));
 
     toast.success("Saving your recipe");
     resetForm();
+    dispatch(blankDishActionCreator());
     navigate("/home");
   };
 
@@ -104,7 +130,7 @@ const CreateForm = (): JSX.Element => {
           placeholder={`${"- One Lemon \n- Mint \n- ..."}`}
           value={formData.ingredients}
           className="textarea"
-          onChange={changeData}
+          onChange={changeDataIngredients}
         ></textarea>
         <p>Easy to read easy to cook, enter ingredients as shown. </p>
 
