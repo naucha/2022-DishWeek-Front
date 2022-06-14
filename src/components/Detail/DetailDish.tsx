@@ -2,17 +2,8 @@ import { useAppSelector } from "../../redux/store/hooks";
 import { StyledDetailDish } from "./StyledDetailDish";
 
 export const DetailDish = () => {
-  const {
-    id,
-    name,
-    image,
-    imagebackup,
-    resume,
-    recipe,
-    ingredients,
-    cookingtime,
-    veggie,
-  } = useAppSelector((state) => state.dish);
+  const { name, imagebackup, recipe, ingredients, cookingtime, veggie } =
+    useAppSelector((state) => state.dish);
 
   return (
     <StyledDetailDish className="detail">
