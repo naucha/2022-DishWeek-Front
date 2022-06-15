@@ -8,6 +8,9 @@ export const mockUserRegisterPage = {
   username: "Grillo",
   password: "1234",
 };
+export const mockToken = {
+  token: "token",
+};
 
 export const mockDish = [
   {
