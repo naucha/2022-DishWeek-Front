@@ -12,8 +12,6 @@ const LogInForm = (): JSX.Element => {
   const blankFields: UserLoginData = {
     username: "",
     password: "",
-    id: "",
-    logged: true,
   };
 
   const [formData, setFormData] = useState<UserLoginData>(blankFields);

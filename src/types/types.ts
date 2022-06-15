@@ -15,8 +15,6 @@ export interface UserRegisterData {
 export interface UserLoginData {
   username: string;
   password: string;
-  id: string;
-  logged: true;
 }
 
 export interface UserLoginResponse {
