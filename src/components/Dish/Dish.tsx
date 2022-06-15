@@ -37,7 +37,8 @@ export const Dish = ({
           className="image-recipe"
           alt={name}
           src={imagebackup}
-          style={{ width: 240, height: "auto" }}
+          width="210"
+          height="auto"
           onClick={() => navigate(`/detail/${id}`)}
         />
       </div>
@@ -64,7 +65,7 @@ export const Dish = ({
               src="/images/icons/pen-solid.svg"
               alt="Button for edit recipes"
               onClick={() => navigate(`/edit/${id}`)}
-              style={{ width: 60, height: 60 }}
+              style={{ width: 40, height: 40 }}
             />
           </>
         )}
