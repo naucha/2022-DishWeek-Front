@@ -13,8 +13,7 @@ export const DetailDish = () => {
           className="detai__image__recipe"
           alt={name}
           src={imagebackup}
-          width="380px"
-          max-height="450px"
+          style={{ width: 380, height: "auto" }}
         />
       </div>
       <div className="detail__info">
@@ -31,6 +30,7 @@ export const DetailDish = () => {
           className="detail__icons__add"
           src="/images/icons/circle-plus-solid.svg"
           alt="Button for add recipes to MyWeek"
+          style={{ width: 60, height: 60 }}
         />
       </div>
       <div className="detail__main">
@@ -47,6 +47,9 @@ export const DetailDish = () => {
           className="detail__exit__icon"
           src="/images/icons/xmark-solid.svg"
           alt="Return to Dishes"
+          width={60}
+          height={60}
+          style={{ width: 60, height: 60 }}
           onClick={() => navigate("/home")}
         ></img>
       </div>
