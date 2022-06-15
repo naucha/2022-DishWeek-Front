@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { useAppSelector } from "../../redux/store/hooks";
+import { blankDishActionCreator } from "../../redux/features/dishSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { Filter } from "../Filter/Filter";
 
 const StyledNavbar = styled.div`
@@ -38,6 +39,11 @@ const StyledNavbar = styled.div`
 
 export const Navbar = () => {
   const { logged } = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
+
+  const blankFields = () => {
+    dispatch(blankDishActionCreator());
+  };
 
   return (
     <>
@@ -52,7 +58,7 @@ export const Navbar = () => {
               )}
             </li>
             <li>{logged ? <Link to="/home">My Week</Link> : ""}</li>
-            <li>
+            <li onClick={blankFields}>
               {logged ? (
                 <Link to="/create">Create</Link>
               ) : (
