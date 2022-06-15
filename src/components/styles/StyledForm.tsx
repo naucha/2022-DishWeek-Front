@@ -113,8 +113,16 @@ const StyledForm = styled.div`
     align-items: center;
     margin-bottom: 100px;
   }
+
+  .option__box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+
   .checkbox {
-    padding-left: 10px;
+    margin-top: 10px;
     width: 30px;
   }
 
