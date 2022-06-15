@@ -9,7 +9,13 @@ export const DetailDish = () => {
   return (
     <StyledDetailDish className="detail">
       <div className="detail__image">
-        <img className="detai__image--recipe" alt={name} src={imagebackup} />
+        <img
+          className="detai__image--recipe"
+          alt={name}
+          src={imagebackup}
+          width="380px"
+          max-height="450px"
+        />
       </div>
       <div className="detail__info">
         <h2 className="detail__info--heading">{name}</h2>
