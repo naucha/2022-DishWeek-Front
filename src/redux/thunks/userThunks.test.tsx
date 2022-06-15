@@ -18,6 +18,8 @@ describe("Given the loginUserThunk", () => {
       const thunk = loginUserThunk({
         username: "Pepito",
         password: "Grillo",
+        id: "32",
+        logged: true,
       });
       await thunk(dispatch);
 

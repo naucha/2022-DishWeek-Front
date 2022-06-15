@@ -16,7 +16,7 @@ Object.defineProperty(window, "localStorage", {
   value: gettingUpLocalStorage,
 });
 
-describe.skip("Given a Header component", () => {
+describe("Given a Header component", () => {
   describe("When its invoked with a logged user that have token", () => {
     saveToStorage(
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlBhbSIsInBhc3N3b3JkIjoiJDJiJDEwJGpaSG5lQ00vUnp5QmwvSEg3VmxKUWV3cFlLL090L3NjWDVXanMyT015T2IvaC5Fa0xRS09PIiwiaWF0IjoxNjU0ODc5MDExfQ.5LBGMQ95wCsOZlkMk01WxFMOu9GqDepMwCRlN1HgjnU"
