@@ -12,8 +12,9 @@ export const StyledDishComponent = styled.li`
   width: 350px;
   height: 550px;
   margin-top: 10px;
-  padding-left: 18px;
-  padding-right: 18px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   border: 3px solid #fff;
 
   .image-container {
@@ -86,5 +87,18 @@ export const StyledDishComponent = styled.li`
     justify-content: space-between;
     align-items: center;
     margin-bottom: 8px;
+  }
+
+  .option {
+    text-align: left;
+    padding: 5px 20px 5px 20px;
+    color: var(--fc-secondary);
+    border: 2px solid var(--fc-secondary);
+    border-radius: 6px;
+    font-style: italic;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-left: 5px;
   }
 `;

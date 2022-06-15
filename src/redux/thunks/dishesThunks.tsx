@@ -59,7 +59,7 @@ export const createDishThunk =
         },
       });
 
-      dispatch(createDishActionCreator(data));
+      dispatch(createDishActionCreator(data.dish));
       toast.success("New recipe added");
       return;
     } catch (error) {

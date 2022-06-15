@@ -37,17 +37,19 @@ export const Dish = ({
           className="image-recipe"
           alt={name}
           src={imagebackup}
+
           width="210"
           height="auto"
+
           onClick={() => navigate(`/detail/${id}`)}
         />
       </div>
       <p>{resume}</p>
       <p>Created by: {createdby}</p>
       {veggie === "true" ? (
-        <p className="vegan">Veggie</p>
+        <p className="option">Veggie</p>
       ) : (
-        <p className="vegan">No Veggie</p>
+        <p className="option">No Veggie</p>
       )}
 
       <div className="buttons-container">
@@ -58,16 +60,16 @@ export const Dish = ({
               src="/images/icons/circle-minus-solid.svg"
               alt="Button for remove recipes"
               onClick={deleteDish}
-              width="80px"
-              height="80px"
+              width="60px"
+              height="60px"
             />
             <img
               className="buttons button--edit"
               src="/images/icons/pen-solid.svg"
               alt="Button for edit recipes"
               onClick={() => navigate(`/edit/${id}`)}
-              width="80px"
-              height="80px"
+              width="60px"
+              height="60px"
             />
           </>
         )}
@@ -75,6 +77,8 @@ export const Dish = ({
           className="buttons button--plus"
           src="/images/icons/circle-plus-solid.svg"
           alt="Button for add recipes"
+          width="60px"
+          height="60px"
         />
       </div>
     </StyledDishComponent>

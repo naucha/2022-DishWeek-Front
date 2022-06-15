@@ -24,7 +24,7 @@ export const StyledDetailDish = styled.div`
       min-width: 300px;
     }
     &__info {
-      &--heading {
+      &__heading {
         margin: 0;
         margin-top: 15px;
         text-align: left;
@@ -33,7 +33,7 @@ export const StyledDetailDish = styled.div`
         font-weight: 700;
         padding: 5px;
       }
-      &--cookingtime {
+      &__cookingtime {
         text-align: left;
         text-align: justify;
         margin: 0;
@@ -50,12 +50,12 @@ export const StyledDetailDish = styled.div`
       width: 350px;
       height: 60px;
       justify-content: space-between;
-      &--add {
+      &__add {
         width: 60px;
         align-items: flex-start;
       }
       align-items: center;
-      &--option {
+      &__option {
         text-align: left;
         padding: 5px 20px 5px 20px;
         color: var(--fc-secondary);
@@ -74,7 +74,7 @@ export const StyledDetailDish = styled.div`
       text-align: left;
       margin: 0;
       align-items: flex-end;
-      &--list {
+      &__list {
         list-style: none;
         padding-left: 0;
         width: 340px;
@@ -84,7 +84,7 @@ export const StyledDetailDish = styled.div`
     }
 
     &__method {
-      &--label {
+      &__label {
         margin: 15px 0 0 10px;
         margin-top: 15px;
         text-align: left;
@@ -93,7 +93,7 @@ export const StyledDetailDish = styled.div`
         font-weight: 700;
         text-decoration: underline;
       }
-      &--content {
+      &__content {
         padding-left: 15px;
         padding-right: 15px;
         margin-bottom: 30px;
@@ -107,12 +107,11 @@ export const StyledDetailDish = styled.div`
       display: flex;
       justify-content: flex-end;
       padding-right: 8px;
-      &--icon {
+      &__icon {
         display: flex;
         cursor: pointer;
         width: 30px;
         margin-bottom: 15px;
-        border: 2px solid var(-red);
       }
     }
   }
