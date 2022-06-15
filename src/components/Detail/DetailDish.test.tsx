@@ -6,7 +6,7 @@ import { DetailDish } from "./DetailDish";
 
 describe("Given a DetailDish component", () => {
   describe("When it's invoked", () => {
-    test("Then it should render a list of 3 item", () => {
+    test("Then it should render 3 headings", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -15,11 +15,11 @@ describe("Given a DetailDish component", () => {
         </BrowserRouter>
       );
 
-      const expectedHeading = screen.getByRole("heading", { level: 2 });
-      const expectedHeading2 = screen.getByRole("heading", { level: 3 });
+      const expectedHeading2 = screen.getByRole("heading", { level: 2 });
+      const expectedHeading3 = screen.getByRole("heading", { level: 3 });
 
-      expect(expectedHeading).toBeInTheDocument();
       expect(expectedHeading2).toBeInTheDocument();
+      expect(expectedHeading3).toBeInTheDocument();
     });
   });
 });
