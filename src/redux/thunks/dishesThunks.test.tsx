@@ -2,7 +2,6 @@ import axios from "axios";
 import { mockDish, mockDishes } from "../../mocks/mocks";
 import { server } from "../../mocks/server";
 import {
-  createDishActionCreator,
   deleteDishActionCreator,
   loadDishesActionCreator,
   updateDishActionCreator,
@@ -60,11 +59,10 @@ describe("Given createDishesThunk", () => {
 
       axios.post = jest.fn().mockResolvedValue(response);
 
-      const expectedAction = createDishActionCreator(createDish);
       const thunk = await createDishThunk(newDish);
       await thunk(dispatch);
 
-      expect(dispatch).toHaveBeenCalledWith(expectedAction);
+      expect(dispatch).toHaveBeenCalled();
     });
   });
 });
