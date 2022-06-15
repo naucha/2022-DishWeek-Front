@@ -123,7 +123,7 @@ const CreateForm = (): JSX.Element => {
         <textarea
           name="ingredients"
           id="ingredients"
-          placeholder={`${"One Lemon, Mint, ..."}`}
+          placeholder={`${"One Lemon / Mint / ..."}`}
           value={formData.ingredients}
           className="textarea"
           onChange={changeDataIngredients}
@@ -170,9 +170,10 @@ const CreateForm = (): JSX.Element => {
           autoComplete="off"
           onChange={handleImageData}
         ></input>
-
-        <label htmlFor="veggie" className="veggie">
-          Veggie recipe?
+        <div className="option__box">
+          <label htmlFor="veggie" className="veggie">
+            Veggie recipe?
+          </label>
           <input
             id="veggie"
             className="checkbox"
@@ -180,11 +181,12 @@ const CreateForm = (): JSX.Element => {
             value={formData.veggie}
             onChange={changeData}
           ></input>
-        </label>
-
-        <button className="button add-recipe" type="submit">
-          {location.pathname === "/create" ? "Add Recipe" : "Save Changes"}
-        </button>
+        </div>
+        <div>
+          <button className="button add-recipe" type="submit">
+            {location.pathname === "/create" ? "Add Recipe" : "Save Changes"}
+          </button>
+        </div>
       </form>
     </StyledForm>
   );
