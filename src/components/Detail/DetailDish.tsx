@@ -10,7 +10,7 @@ export const DetailDish = () => {
     <StyledDetailDish className="detail">
       <div className="detail__image">
         <img
-          className="detai__image--recipe"
+          className="detai__image__recipe"
           alt={name}
           src={imagebackup}
           width="380px"
@@ -18,33 +18,33 @@ export const DetailDish = () => {
         />
       </div>
       <div className="detail__info">
-        <h2 className="detail__info--heading">{name}</h2>
-        <p className="detail__info--cookingtime">{cookingtime}</p>
+        <h2 className="detail__info__heading">{name}</h2>
+        <p className="detail__info__cookingtime">{cookingtime}</p>
       </div>
       <div className="detail__icons">
         {veggie === "true" ? (
-          <p className="detail__icons--option">Veggie</p>
+          <p className="detail__icons__option">Veggie</p>
         ) : (
-          <p className="detail__icons--option">No Veggie</p>
+          <p className="detail__icons__option">No Veggie</p>
         )}
         <img
-          className="detail__icons--add"
+          className="detail__icons__add"
           src="/images/icons/circle-plus-solid.svg"
           alt="Button for add recipes to MyWeek"
         />
       </div>
       <div className="detail__main">
-        <ul className="detail__main--list">
-          <li className="detail__list--ingredient">{ingredients}</li>
+        <ul className="detail__main__list">
+          <li className="detail__list__ingredient">{ingredients}</li>
         </ul>
       </div>
       <div className="detail__method">
-        <h3 className="detail__method--label">Method</h3>
-        <p className="detail__method--content">{recipe}</p>
+        <h3 className="detail__method__label">Method</h3>
+        <p className="detail__method__content">{recipe}</p>
       </div>
       <div className="detail__exit">
         <img
-          className="detail__exit--icon"
+          className="detail__exit__icon"
           src="/images/icons/xmark-solid.svg"
           alt="Return to Dishes"
           onClick={() => navigate("/home")}
