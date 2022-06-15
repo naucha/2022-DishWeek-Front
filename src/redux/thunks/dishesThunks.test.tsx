@@ -19,7 +19,7 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 describe("Given getDishesThunk", () => {
-  describe("When its invoked", () => {
+  describe("When its invoked with id", () => {
     test("Then it should dispatch loadDishesActionCreator", async () => {
       const dispatch = jest.fn();
       const action = loadDishesActionCreator(mockDish);
