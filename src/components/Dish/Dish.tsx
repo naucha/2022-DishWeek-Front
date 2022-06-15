@@ -51,7 +51,7 @@ export const Dish = ({
       )}
 
       <div className="buttons-container">
-        {user.username === createdby ? (
+        {user.username === createdby && (
           <>
             <img
               className="buttons button--minus"
@@ -70,8 +70,6 @@ export const Dish = ({
               height="80px"
             />
           </>
-        ) : (
-          ""
         )}
         <img
           className="buttons button--plus"
