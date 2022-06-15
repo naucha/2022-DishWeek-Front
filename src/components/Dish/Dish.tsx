@@ -37,6 +37,10 @@ export const Dish = ({
           className="image-recipe"
           alt={name}
           src={imagebackup}
+
+          width="210"
+          height="auto"
+
           onClick={() => navigate(`/detail/${id}`)}
         />
       </div>
