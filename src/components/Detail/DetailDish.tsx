@@ -30,11 +30,6 @@ export const DetailDish = () => {
       <div className="detail__main">
         <ul className="detail__main--list">
           <li className="detail__list--ingredient">{ingredients}</li>
-          <li className="detail__list--ingredient">{ingredients}</li>
-          <li className="detail__list--ingredient">{ingredients}</li>
-          <li className="detail__list--ingredient">{ingredients}</li>
-          <li className="detail__list--ingredient">{ingredients}</li>
-          <li className="detail__list--ingredient">{ingredients}</li>
         </ul>
       </div>
       <div className="detail__method">
