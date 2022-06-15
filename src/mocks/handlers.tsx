@@ -1,5 +1,5 @@
 import { rest } from "msw";
-import { mockDish, mockDishes } from "./mocks";
+import { mockDish, mockDishes, mockToken } from "./mocks";
 
 const mockNewUser = {
   name: "Pepito",
@@ -30,6 +30,6 @@ export const handlers = [
   ),
 
   rest.get(`${process.env.REACT_APP_API_URL}dishes/123ea`, (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json(mockDish[0]));
+    return res(ctx.status(200), ctx.json({ token: mockToken }));
   }),
 ];

@@ -9,12 +9,14 @@ const LogInForm = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const userStateInfo = useAppSelector((state) => state.user.logged);
 
-  const blanckFields: UserLoginData = {
+  const blankFields: UserLoginData = {
     username: "",
     password: "",
+    id: "",
+    logged: true,
   };
 
-  const [formData, setFormData] = useState<UserLoginData>(blanckFields);
+  const [formData, setFormData] = useState<UserLoginData>(blankFields);
 
   const navigate = useNavigate();
 
@@ -30,7 +32,7 @@ const LogInForm = (): JSX.Element => {
   };
 
   const resetForm = () => {
-    setFormData(blanckFields);
+    setFormData(blankFields);
   };
 
   const onSubmit = async (event: React.SyntheticEvent) => {

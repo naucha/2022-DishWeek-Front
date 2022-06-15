@@ -7,7 +7,7 @@ import { UserRegisterData } from "../../types/types";
 import StyledForm from "../styles/StyledForm";
 
 const RegisterForm = (): JSX.Element => {
-  const blanckFields: UserRegisterData = {
+  const blankFields: UserRegisterData = {
     name: "",
     username: "",
     password: "",
@@ -16,14 +16,14 @@ const RegisterForm = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const [formData, setFormData] = useState<UserRegisterData>(blanckFields);
+  const [formData, setFormData] = useState<UserRegisterData>(blankFields);
 
   const changeData = (event: { target: { id: string; value: string } }) => {
     setFormData({ ...formData, [event.target.id]: event.target.value });
   };
 
   const resetForm = () => {
-    setFormData(blanckFields);
+    setFormData(blankFields);
   };
 
   const onSubmit = async (event: React.SyntheticEvent) => {
