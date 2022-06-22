@@ -34,7 +34,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "test-coverage": "npm run test -- --coverage --watchAll=false",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "cypress:open": "cypress open"
   },
   "eslintConfig": {
     "extends": [
@@ -57,6 +58,8 @@
   "devDependencies": {
     "@types/react-test-renderer": "^18.0.0",
     "@types/styled-components": "^5.1.25",
+    "cypress": "^9.7.0",
+    "cypress-file-upload": "^5.0.8",
     "husky": "^7.0.0",
     "react-test-renderer": "^18.1.0"
   },
